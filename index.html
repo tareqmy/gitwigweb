@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gitwig | Terminal Git UI & SourceTree Alternative</title>
+    <meta name="description" content="Gitwig is a lightweight, keyboard-driven Terminal Git UI built in Rust. A fast, minimal alternative to SourceTree and lazygit.">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glow-blob blob-1"></div>
+    <div class="glow-blob blob-2"></div>
+    
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <span class="logo-icon">🌿</span>
+                <span class="logo-text">Gitwig</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="./docs/index.html">Documentation</a>
+                <a href="https://github.com/tareqmy/gitwig" class="btn btn-outline" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <div class="hero-content">
+                <div class="badge">Built with Rust & Ratatui 🦀</div>
+                <h1 class="hero-title">
+                    The Modern <br>
+                    <span class="gradient-text">Terminal Git UI</span>
+                </h1>
+                <p class="hero-subtitle">
+                    A lightweight, keyboard-driven alternative to SourceTree and lazygit. Manage your branches, worktrees, and stashes without leaving the terminal.
+                </p>
+                <div class="cta-group">
+                    <div class="install-card">
+                        <code class="install-command">cargo install gitwig</code>
+                        <button id="copyBtn" class="copy-btn" aria-label="Copy to clipboard">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        </button>
+                    </div>
+                    <a href="./docs/index.html" class="btn btn-primary">Read the Docs</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-btns">
+                            <span class="btn-close"></span>
+                            <span class="btn-min"></span>
+                            <span class="btn-max"></span>
+                        </div>
+                        <div class="terminal-title">~/projects/gitwig</div>
+                    </div>
+                    <div class="terminal-body">
+                        <!-- We will embed an image or just a styled representation for now -->
+                        <div class="terminal-preview-placeholder">
+                            <img src="https://raw.githubusercontent.com/tareqmy/gitwig/main/resources/preview.gif" alt="Gitwig Demo" class="preview-gif" onerror="this.style.display='none'">
+                            <div class="fallback-code">
+                                <code>$ gitwig<br><span class="highlight">Loading repository...</span><br>🌿 Gitwig loaded successfully.</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features container">
+            <h2 class="section-title">Why Gitwig?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Blazing Fast</h3>
+                    <p>Built from the ground up in Rust, ensuring instant responsiveness even in massive repositories with extensive history.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⌨️</div>
+                    <h3>Keyboard Driven</h3>
+                    <p>Familiar keystrokes inspired by modern editors. Navigate branches, stages, and commits effortlessly without touching your mouse.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Intuitive UI</h3>
+                    <p>A clean, bordered layout presenting branches, worktrees, and stashes at a glance—reminiscent of SourceTree but in the terminal.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">🌿 Gitwig</div>
+            <div class="footer-links">
+                <a href="#features">Features</a>
+                <a href="./docs/index.html">Documentation</a>
+                <a href="https://github.com/tareqmy/gitwig" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

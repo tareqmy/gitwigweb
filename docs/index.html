@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Gitwig</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="logo-icon">🌿</span>
+                    <span class="logo-text">Gitwig</span>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="https://github.com/tareqmy/gitwig" class="btn btn-outline" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="docs-container container">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <div class="nav-group">
+                    <h4 class="nav-group-title">Getting Started</h4>
+                    <a href="#installation" class="active">Installation</a>
+                    <a href="#quickstart">Quickstart</a>
+                </div>
+                <div class="nav-group">
+                    <h4 class="nav-group-title">User Guide</h4>
+                    <a href="#features">Core Features</a>
+                    <a href="#keybindings">Keybindings</a>
+                    <a href="#configuration">Configuration</a>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="docs-content">
+            <h1>Documentation</h1>
+            <p class="lead">Everything you need to know to get started with Gitwig, the modern terminal Git UI.</p>
+
+            <hr>
+
+            <section id="installation">
+                <h2>Installation</h2>
+                <p>Gitwig is built in Rust and can be easily installed via Cargo, Rust's package manager.</p>
+                
+                <div class="code-block">
+                    <pre><code>cargo install gitwig</code></pre>
+                </div>
+                <p>Alternatively, you can build from source:</p>
+                <div class="code-block">
+                    <pre><code>git clone https://github.com/tareqmy/gitwig.git
+cd gitwig
+cargo build --release
+sudo cp target/release/gitwig /usr/local/bin/</code></pre>
+                </div>
+            </section>
+
+            <section id="quickstart">
+                <h2>Quickstart</h2>
+                <p>To start using Gitwig, simply navigate to any Git repository on your terminal and run:</p>
+                <div class="code-block">
+                    <pre><code>gitwig</code></pre>
+                </div>
+                <p>If the directory is not a Git repository, Gitwig will notify you or allow you to initialize one.</p>
+            </section>
+
+            <section id="features">
+                <h2>Core Features</h2>
+                <ul>
+                    <li><strong>Status Indicators:</strong> Real-time per-card status indicators for branches, worktrees, and stashes.</li>
+                    <li><strong>Detail View:</strong> Press `Enter` on any branch to see an on-demand detail view of commits and changes.</li>
+                    <li><strong>Modals:</strong> Clean modal input for branch creation, committing, and tagging.</li>
+                    <li><strong>Configuration:</strong> TOML based configuration editable from within the app.</li>
+                </ul>
+            </section>
+
+            <section id="keybindings">
+                <h2>Keybindings</h2>
+                <p>Gitwig is fully keyboard-driven. Below are the basic navigation keys:</p>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>j</code> / <code>↓</code></td>
+                                <td>Move down</td>
+                            </tr>
+                            <tr>
+                                <td><code>k</code> / <code>↑</code></td>
+                                <td>Move up</td>
+                            </tr>
+                            <tr>
+                                <td><code>Enter</code></td>
+                                <td>Inspect/Detail view</td>
+                            </tr>
+                            <tr>
+                                <td><code>c</code></td>
+                                <td>Commit changes</td>
+                            </tr>
+                            <tr>
+                                <td><code>q</code> / <code>Esc</code></td>
+                                <td>Quit/Close modal</td>
+                            </tr>
+                            <tr>
+                                <td><code>?</code></td>
+                                <td>Open Help overlay</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
