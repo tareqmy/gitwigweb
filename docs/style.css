@@ -99,7 +99,7 @@
 }
 
 .code-block code {
-    color: #e4e4e7;
+    color: var(--color-text-primary);
 }
 
 .table-wrapper {
@@ -121,15 +121,22 @@ th, td {
 th {
     font-weight: 600;
     color: var(--color-text-secondary);
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--color-bg-elevated);
 }
 
-td code {
-    background: rgba(255, 255, 255, 0.1);
+code {
+    background: var(--color-bg-elevated);
     padding: 0.2rem 0.4rem;
     border-radius: 4px;
     font-family: var(--font-mono);
     font-size: 0.85rem;
+    color: var(--color-accent);
+}
+
+.code-block code {
+    background: transparent;
+    padding: 0;
+    color: var(--color-text-primary);
 }
 
 @media (max-width: 768px) {
