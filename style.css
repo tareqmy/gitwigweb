@@ -196,12 +196,21 @@ body {
     border-radius: 6px;
     padding: 0.5rem;
     padding-left: 1.5rem;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .install-command {
     font-family: var(--font-mono);
     color: var(--color-text-primary);
-    margin-right: 1.5rem;
+    margin-right: 1rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.install-command::-webkit-scrollbar {
+    display: none;
 }
 
 .copy-btn {
@@ -373,7 +382,7 @@ body {
 }
 
 /* Responsive */
-@media (max-width: 968px) {
+@media (max-width: 1024px) {
     .hero {
         flex-direction: column;
         padding-top: 4rem;
@@ -398,5 +407,52 @@ body {
 
     .terminal-window:hover {
         transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .install-card {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .cta-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .cta-group .btn {
+        width: 100%;
     }
 }
