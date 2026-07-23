@@ -53,4 +53,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Documentation Auto-scroll to Next Page
+    const docsContainer = document.querySelector('.docs-container');
+    if (docsContainer) {
+        let isNavigating = false;
+        
+        window.addEventListener('scroll', () => {
+            if (isNavigating) return;
+            
+            // Trigger when hitting the very bottom (allowing a 2px margin for subpixel rendering)
+            if (Math.ceil(window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
+                const activeLink = document.querySelector('.sidebar-nav a.active');
+                if (activeLink) {
+                    const links = Array.from(document.querySelectorAll('.sidebar-nav a:not(.nav-group-title)'));
+                    const currentIndex = links.indexOf(activeLink);
+                    
+                    if (currentIndex !== -1 && currentIndex < links.length - 1) {
+                        const nextLink = links[currentIndex + 1];
+                        isNavigating = true;
+                        window.location.href = nextLink.href;
+                    }
+                }
+            }
+        });
+    }
 });
