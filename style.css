@@ -434,6 +434,22 @@ body.light-theme .blob-2 {
 }
 
 @media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .hero {
+        padding: 4rem 1.5rem;
+    }
+    
+    .features {
+        padding: 4rem 1.5rem;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
     .nav-content {
         flex-direction: column;
         gap: 1rem;
