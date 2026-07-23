@@ -1,4 +1,4 @@
-.PHONY: install dev build preview help
+.PHONY: install dev build preview help docs
 
 # Default target when just running 'make'
 help:
