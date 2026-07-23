@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font & Symbol Support - Gitwig</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="logo-icon">🌿</span>
+                    <span class="logo-text">Gitwig</span>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="https://github.com/tareqmy/gitwig" class="btn btn-outline" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="docs-container container">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+  <div class="nav-group">
+    <h4 class="nav-group-title">Getting Started</h4>
+    <a href="index.html">Quickstart</a>
+    <a href="installation.html">Installation</a>
+  </div>
+  <div class="nav-group">
+    <h4 class="nav-group-title">User Guide</h4>
+    <a href="features.html">Core Features</a>
+    <a href="keybindings.html">Keybindings</a>
+    <a href="status_indicators.html">Status Indicators</a>
+    <a href="detail_view.html">Detail View</a>
+    <a href="panels.html">Panels & UI Windows</a>
+    <a href="configuration.html">Configuration</a>
+    <a href="font_support.html" class="active">Font & Symbol Support</a>
+  </div>
+</nav>
+        </aside>
+
+        <main class="docs-content">
+            <h1>🎨 Font &amp; Symbol Support</h1>
+<p>Gitwig uses rich Unicode symbols, icons, and Nerd Font glyphs (such as <code>●</code>, <code>○</code>, <code>✕</code>, <code>▶</code>, <code></code>, etc.) to provide a premium, modern visual experience directly in the terminal.</p>
+<p>To display these symbols correctly without layout breakage or replacement characters (e.g., question marks or empty blocks), your terminal emulator must use a font containing Nerd Font glyphs. </p>
+<h3>Recommended Font (Bundled)</h3>
+<p>We have bundled the clean and highly popular <strong>JetBrains Mono Nerd Font</strong> inside this repository:</p>
+<ul>
+<li><strong>Location:</strong> <code>resources/fonts/JetBrainsMonoNerdFontMono-Regular.ttf</code></li>
+</ul>
+<h4>📥 How to Install the Font:</h4>
+<ul>
+<li><strong>macOS:</strong> Open the <code>resources/fonts/</code> directory in Finder, double-click <code>JetBrainsMonoNerdFontMono-Regular.ttf</code>, and click <strong>Install Font</strong>.</li>
+<li><strong>Windows:</strong> Right-click <code>JetBrainsMonoNerdFontMono-Regular.ttf</code> and select <strong>Install</strong> (or <strong>Install for all users</strong>).</li>
+<li><strong>Linux:</strong> Copy the font file to your local font directory:<pre><code class="language-sh">mkdir -p ~/.local/share/fonts
+cp resources/fonts/JetBrainsMonoNerdFontMono-Regular.ttf ~/.local/share/fonts/
+fc-cache -fv
+</code></pre>
+</li>
+</ul>
+<h4>⚙️ How to Configure Your Terminal:</h4>
+<p>Open your terminal emulator settings (e.g. iTerm2, Alacritty, Kitty, Windows Terminal, macOS Terminal) and set the active font to <strong>JetBrainsMono Nerd Font Mono</strong> (or <strong>JetBrainsMonoNF</strong>).</p>
+<h3>🛠️ Compatibility Mode (No Font Install Required)</h3>
+<p>If you prefer not to install custom fonts, Gitwig includes a built-in fallback:</p>
+<ol>
+<li>Open the settings popup in the app by pressing <strong><code>s</code></strong>.</li>
+<li>Focus the <code>Compatibility Mode</code> option and toggle it to <code>true</code>.</li>
+<li>Alternatively, add <code>compatibility_mode = true</code> in your <code>config.toml</code>.</li>
+</ol>
+<p>When Compatibility Mode is active, Gitwig will automatically substitute all Nerd Font glyphs and complex emojis with standard ASCII and basic terminal symbols to ensure a clean, stable layout in any standard monospaced font.</p>
+
+        </main>
+    </div>
+</body>
+</html>

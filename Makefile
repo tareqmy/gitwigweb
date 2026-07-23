@@ -5,6 +5,7 @@ help:
 	@echo "Gitwig Website Makefile Commands:"
 	@echo ""
 	@echo "  make install  - Install dependencies (npm install)"
+	@echo "  make docs     - Generate HTML documentation from markdown"
 	@echo "  make dev      - Start the local development server (npm run dev)"
 	@echo "  make build    - Build the website for production (npm run build)"
 	@echo "  make preview  - Preview the production build locally (npm run preview)"
@@ -13,6 +14,9 @@ help:
 
 install:
 	npm install
+
+docs:
+	npm run docs
 
 dev:
 	npm run dev

@@ -4,12 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "docs": "node scripts/build-docs.js",
+    "predev": "npm run docs",
     "dev": "vite",
+    "prebuild": "npm run docs",
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "bash deploy.sh"
   },
   "devDependencies": {
+    "marked": "^18.0.7",
     "vite": "^5.2.0"
   }
 }

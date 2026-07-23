@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration - Gitwig</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="logo-icon">🌿</span>
+                    <span class="logo-text">Gitwig</span>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="https://github.com/tareqmy/gitwig" class="btn btn-outline" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="docs-container container">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+  <div class="nav-group">
+    <h4 class="nav-group-title">Getting Started</h4>
+    <a href="index.html">Quickstart</a>
+    <a href="installation.html">Installation</a>
+  </div>
+  <div class="nav-group">
+    <h4 class="nav-group-title">User Guide</h4>
+    <a href="features.html">Core Features</a>
+    <a href="keybindings.html">Keybindings</a>
+    <a href="status_indicators.html">Status Indicators</a>
+    <a href="detail_view.html">Detail View</a>
+    <a href="panels.html">Panels & UI Windows</a>
+    <a href="configuration.html" class="active">Configuration</a>
+    <a href="font_support.html">Font & Symbol Support</a>
+  </div>
+</nav>
+        </aside>
+
+        <main class="docs-content">
+            <h1>🔧 Configuration</h1>
+<p>Gitwig stores its config in <code>~/.gitwig/config.toml</code>. The directory is created automatically on first launch.</p>
+<h3>First-run migration</h3>
+<p>If <code>~/.gitwig/config.toml</code> doesn&#39;t exist yet, Gitwig looks for an existing config to migrate from:</p>
+<ol>
+<li>A path passed as the first CLI argument (<code>gitwig path/to/config.toml</code>).</li>
+<li><code>./config/config.toml</code> relative to the current working directory.</li>
+<li><code>./config/config.toml</code> relative to the executable.</li>
+<li><code>~/.config/gitwig/config.toml</code> (new XDG location), <code>~/.config/twig/config.toml</code> (legacy Twig XDG location), or <code>~/.twig/config.toml</code> (legacy Twig home location).</li>
+<li>Nothing found — a default config is written to <code>~/.gitwig/config.toml</code>.</li>
+</ol>
+<p>After the first run the migrated (or generated) file becomes the sole source of truth; the original is left untouched.</p>
+<h3>Example: <code>config.toml</code></h3>
+<pre><code class="language-toml">items = [&quot;Repo A&quot;, &quot;Repo B&quot;, &quot;Side Project&quot;, &quot;Test Repo&quot;]
+
+# Event-loop poll interval in milliseconds (default: 100).
+# Lower → more responsive input, higher → less CPU usage. Sane range: 16–500.
+poll_interval_ms = 100
+
+# Sorting preferences for the main page list
+sort_by = &quot;custom&quot;
+sort_reverse = false
+
+# Enable compatibility mode to use simple ASCII symbols
+compatibility_mode = false
+
+# Directories to watch recursively for automatic workspace syncing
+watch_dirs = [&quot;~/development&quot;]
+
+# Number of months inactive to be considered stale
+stale_threshold_months = 1
+
+# Hide/show stale projects on the main page list
+show_stale_projects = true
+</code></pre>
+<h3>Config keys</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>items</code></td>
+<td><code>[String]</code></td>
+<td><code>[]</code></td>
+<td>Paths shown in the main list. Managed by the in-app <code>a</code> (directory scan) / <code>e</code> / <code>d</code> shortcuts.</td>
+</tr>
+<tr>
+<td><code>watch_dirs</code></td>
+<td><code>[String]</code></td>
+<td><code>[]</code></td>
+<td>Directories watched recursively for automatic workspace synchronization. When a new Git repository is cloned or created in these directories, it is automatically added to <code>items</code> and persisted. Paths matching <code>scan.excludes</code> are ignored.</td>
+</tr>
+<tr>
+<td><code>poll_interval_ms</code></td>
+<td><code>Integer</code></td>
+<td><code>100</code></td>
+<td>How long (ms) the event loop waits between input checks. Lower feels snappier; higher saves CPU.</td>
+</tr>
+<tr>
+<td><code>max_commits</code></td>
+<td><code>Integer</code></td>
+<td><code>0</code></td>
+<td>Maximum commits to load in workspace view. Set to <code>0</code> for unlimited.</td>
+</tr>
+<tr>
+<td><code>page_size</code></td>
+<td><code>Integer</code></td>
+<td><code>10</code></td>
+<td>Number of lines/items scrolled by Page Up / Page Down.</td>
+</tr>
+<tr>
+<td><code>sort_by</code></td>
+<td><code>String</code></td>
+<td><code>&quot;custom&quot;</code></td>
+<td>Main list sorting preference (<code>&quot;custom&quot;</code>, <code>&quot;alphabetical&quot;</code>, <code>&quot;recent_visit&quot;</code>, <code>&quot;latest_changes&quot;</code>). Managed by <code>o</code>.</td>
+</tr>
+<tr>
+<td><code>sort_reverse</code></td>
+<td><code>Boolean</code></td>
+<td><code>false</code></td>
+<td>Inverts the main list sorting direction (ascending vs. descending). Managed by <code>O</code>.</td>
+</tr>
+<tr>
+<td><code>theme</code></td>
+<td><code>String</code></td>
+<td><code>&quot;default&quot;</code></td>
+<td>Active theme configuration name. Managed in Settings <code>s</code>.</td>
+</tr>
+<tr>
+<td><code>compatibility_mode</code></td>
+<td><code>Boolean</code></td>
+<td><code>false</code></td>
+<td>Enable to use simple ASCII symbols instead of rich Unicode icons/emojis (prevents layout alignment issues in restricted terminals like RustRover&#39;s built-in terminal).</td>
+</tr>
+<tr>
+<td><code>scan.max_depth</code></td>
+<td><code>Integer</code></td>
+<td><code>6</code></td>
+<td>Maximum directory depth to search for git repositories during discovery.</td>
+</tr>
+<tr>
+<td><code>scan.start_dir</code></td>
+<td><code>String</code></td>
+<td><code>&quot;$HOME&quot;</code></td>
+<td>Starting directory for interactive repository discovery scanning.</td>
+</tr>
+<tr>
+<td><code>scan.excludes</code></td>
+<td><code>[String]</code></td>
+<td><code>[&quot;node_modules&quot;, &quot;target&quot;, &quot;venv&quot;, &quot;.venv&quot;, &quot;checkout&quot;]</code></td>
+<td>Directory names excluded from discovery scanning and filesystem watching.</td>
+</tr>
+<tr>
+<td><code>scan.git_only</code></td>
+<td><code>Boolean</code></td>
+<td><code>true</code></td>
+<td>Only scan folders that contain a .git directory.</td>
+</tr>
+<tr>
+<td><code>auto_fetch_interval_mins</code></td>
+<td><code>Integer</code></td>
+<td><code>10</code></td>
+<td>Time interval in minutes to automatically run background fetches for all repositories. Set to <code>0</code> to disable.</td>
+</tr>
+<tr>
+<td><code>show_system_stats</code></td>
+<td><code>Boolean</code></td>
+<td><code>false</code></td>
+<td>Display CPU and Memory utilization of the Gitwig process in the bottom status bar.</td>
+</tr>
+<tr>
+<td><code>enable_commit_signatures</code></td>
+<td><code>Boolean</code></td>
+<td><code>false</code></td>
+<td>Verify GPG/SSH signatures on commits list (requires spawning git subprocesses).</td>
+</tr>
+<tr>
+<td><code>graph_max_commits</code></td>
+<td><code>Integer</code></td>
+<td><code>1000</code></td>
+<td>Maximum commits visualized in the Graph tab history. Set to <code>0</code> for unlimited.</td>
+</tr>
+<tr>
+<td><code>detail_cache_ttl_secs</code></td>
+<td><code>Integer</code></td>
+<td><code>30</code></td>
+<td>How long in seconds repository details are cached in memory before reloading.</td>
+</tr>
+<tr>
+<td><code>tab_ttl_secs</code></td>
+<td><code>Integer</code></td>
+<td><code>60</code></td>
+<td>How long in seconds lazy-loaded tab data remains cached in memory before automatic refresh.</td>
+</tr>
+<tr>
+<td><code>stale_threshold_months</code></td>
+<td><code>Integer</code></td>
+<td><code>1</code></td>
+<td>Number of months inactive (no commits) for a repository to be considered stale.</td>
+</tr>
+<tr>
+<td><code>show_stale_projects</code></td>
+<td><code>Boolean</code></td>
+<td><code>true</code></td>
+<td>Show or hide stale repositories in the list on the main page.</td>
+</tr>
+</tbody></table>
+<p>Gitwig writes back to whichever file it loaded from, so edits made in the UI persist across runs.</p>
+
+        </main>
+    </div>
+</body>
+</html>

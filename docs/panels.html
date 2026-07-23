@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panels & UI Windows - Gitwig</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="logo-icon">🌿</span>
+                    <span class="logo-text">Gitwig</span>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="https://github.com/tareqmy/gitwig" class="btn btn-outline" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="docs-container container">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+  <div class="nav-group">
+    <h4 class="nav-group-title">Getting Started</h4>
+    <a href="index.html">Quickstart</a>
+    <a href="installation.html">Installation</a>
+  </div>
+  <div class="nav-group">
+    <h4 class="nav-group-title">User Guide</h4>
+    <a href="features.html">Core Features</a>
+    <a href="keybindings.html">Keybindings</a>
+    <a href="status_indicators.html">Status Indicators</a>
+    <a href="detail_view.html">Detail View</a>
+    <a href="panels.html" class="active">Panels & UI Windows</a>
+    <a href="configuration.html">Configuration</a>
+    <a href="font_support.html">Font & Symbol Support</a>
+  </div>
+</nav>
+        </aside>
+
+        <main class="docs-content">
+            <h1>Gitwig - Panel &amp; UI Window Directory</h1>
+<p>This document lists and describes all the user interface panels, tabs, views, overlay pickers, inputs, and modal dialogs implemented in Gitwig, along with their available keyboard shortcuts.</p>
+<hr>
+<h2>1. Home Screen (Repository List View)</h2>
+<p>The primary dashboard shown when Gitwig starts up.</p>
+<ul>
+<li><strong>Repository List Panel</strong>: Displays cards for all configured/scanned repositories. Supports Standard, Compact, and Tile grid layouts.<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>↑</code> / <code>k</code> / <code>up</code> : Move selection up</li>
+<li><code>↓</code> / <code>j</code> / <code>down</code> : Move selection down</li>
+<li><code>PgUp</code> / <code>pageup</code> : Jump one page up</li>
+<li><code>PgDn</code> / <code>pagedown</code> : Jump one page down</li>
+<li><code>Home</code> / <code>home</code> : Go to top of list</li>
+<li><code>End</code> / <code>end</code> : Go to bottom of list</li>
+<li><code>Enter</code> / <code>→</code> / <code>right</code> : Open repository details</li>
+<li><code>Space</code> : Toggle selection for batch actions</li>
+<li><code>p</code> : Toggle pin status of selected item</li>
+<li><code>*</code> : Toggle Starred / Favorite status of selected item</li>
+<li><code>y</code> : Yank absolute path to clipboard</li>
+<li><code>/</code> : Open fuzzy Jump-to-Repo picker</li>
+<li><code>f</code> : Enter repository list search query input mode</li>
+<li><code>ctrl-f</code> : Open global code search across all repositories</li>
+<li><code>R</code> : Refresh status of selected item manually</li>
+<li><code>F</code> : Bulk fetch all repositories concurrently</li>
+<li><code>o</code> : Cycle sorting criteria (Name, Path, Last Commit, Status)</li>
+<li><code>O</code> : Toggle reverse sorting</li>
+<li><code>v</code> : Cycle repository list layout (Normal/Compact/Tile)</li>
+<li><code>a</code> : Add a repository path manually</li>
+<li><code>A</code> : Bulk add subdirectories of a directory</li>
+<li><code>i</code> : Import / clone a remote repository</li>
+<li><code>e</code> : Edit selected repository entry</li>
+<li><code>D</code> : Delete selected repository entry</li>
+<li><code>l</code> : Edit custom labels of selected item</li>
+<li><code>t</code> : Open terminal shell in repository path</li>
+<li><code>g</code> : Launch preferred external Git GUI client</li>
+<li><code>d</code> : Open debug logs panel</li>
+<li><code>V</code> : Open about dialog</li>
+<li><code>h</code> : Show signs &amp; symbols legend popup</li>
+<li><code>u</code> : Check for updates manually</li>
+<li><code>s</code> : Open settings view</li>
+<li><code>?</code> : Toggle help overlay</li>
+<li><code>ctrl-q</code> : Quit Gitwig</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Grouping Sidebar (Left)</strong>: Visible when <code>Show Grouping</code> is enabled. Groups repositories into Recent, Starred, and custom Labels.<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>←</code> / <code>→</code> : Toggle focus between sidebar groups and repository list</li>
+<li><code>Space</code> / <code>Enter</code> : Collapse / expand label groups (when focused on header)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Bottom Command/Status Bar</strong>: Reflects current keyboard context, active mode, background fetches, and CPU/memory statistics.</li>
+</ul>
+<hr>
+<h2>2. Repository Detail / Workspace View</h2>
+<p>Triggered by opening a repository.</p>
+<h3>Sidebar Panel (Left)</h3>
+<ul>
+<li><strong>Tab Selector Panel</strong>: Navigates between primary and advanced views.<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>Esc</code> / <code>q</code> / <code>Q</code> : Close details / Return to Home Screen</li>
+<li><code>?</code> : Toggle detail view shortcut help overlay</li>
+<li><code>w</code> : Cycle focus forward through panels</li>
+<li><code>W</code> : Cycle focus backward through panels</li>
+<li><code>Tab</code> : Cycle tab forward</li>
+<li><code>Shift+Tab</code> / <code>backtab</code> : Cycle tab backward</li>
+<li><code>R</code> : Resync active tab details manually</li>
+<li><code>1</code> - <code>7</code> : Jump directly to Tabs 1-7 (or Tabs 8-11 in advanced group)</li>
+<li><code>Z</code> : Toggle Advanced Tab group (Worktrees, Submodules, Reflog, Forge)</li>
+<li><code>O</code> : Show repository Overview overlay</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Main Workspace Tabs</h3>
+<h4>Tab 0: Workspace (Commits History &amp; Workspace Staging)</h4>
+<ul>
+<li><em>Commits List Panel (Left)</em>: Lists Git commit logs with authors, dates, and messages. Includes an &quot;Uncommitted changes&quot; virtual item at the very top.<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>↑</code> / <code>k</code> / <code>K</code> : Move selection up</li>
+<li><code>↓</code> / <code>j</code> / <code>J</code> : Move selection down</li>
+<li><code>PgUp</code> / <code>PgDn</code> : Scroll commit list</li>
+<li><code>Home</code> / <code>End</code> : Jump to top / bottom of list</li>
+<li><code>Enter</code> / <code>→</code> : Inspect selected commit (enters Commit Inspection Layout)</li>
+<li><code>t</code> / <code>T</code> : Create tag at selected commit</li>
+<li><code>b</code> / <code>B</code> : Create new branch at selected commit</li>
+<li><code>y</code> / <code>Y</code> : Yank selected commit hash</li>
+<li><code>o</code> / <code>O</code> : Checkout selected commit (detached HEAD)</li>
+<li><code>v</code> / <code>V</code> : Revert selected commit</li>
+<li><code>p</code> / <code>P</code> : Cherry-pick selected commit</li>
+<li><code>i</code> / <code>I</code> : Run interactive rebase from selected commit</li>
+<li><code>s</code> / <code>S</code> : Open stashing UI panel</li>
+<li><code>c</code> : Open Commit message dialog</li>
+<li><code>C</code> : Open Commit message dialog with Amend</li>
+<li><code>/</code> : Fuzzy search commits list</li>
+<li><code>f</code> : Open search column picker popup</li>
+<li><code>l</code> / <code>L</code> : Open full-screen Logs view</li>
+<li><code>G</code> : Load more commits</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>Commit Info Panel (Top Right)</em>: Metadata and descriptions of the selected commit.</li>
+<li><em>Files List Panel (Bottom Right)</em>: List of changed files in the selected commit. Displays inline diff on selection.</li>
+</ul>
+<h4>Tab 1: Files Tab (Working Directory Browser)</h4>
+<ul>
+<li><em>File Tree Panel (Left)</em>: Lists all files in the current workspace directory.<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>↑</code> / <code>k</code> / <code>K</code> : Move selection up</li>
+<li><code>↓</code> / <code>j</code> / <code>J</code> : Move selection down</li>
+<li><code>PgUp</code> / <code>PgDn</code> : Scroll file list</li>
+<li><code>Home</code> / <code>End</code> : Jump to top / bottom of file tree</li>
+<li><code>&gt;</code> / <code>.</code> : Expand folder in tree</li>
+<li><code>&lt;</code> / <code>,</code> : Collapse folder in tree</li>
+<li><code>b</code> / <code>B</code> : Toggle git blame panel</li>
+<li><code>n</code> / <code>N</code> : Toggle line numbers in content viewer</li>
+<li><code>e</code> / <code>o</code> : Open selected file in default terminal editor</li>
+<li><code>H</code> : View commit history of the selected file</li>
+<li><code>/</code> : Launch fuzzy file search picker</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>File Content Viewer (Right)</em>: Displays code content of the selected file. Supports git blame when toggled.<ul>
+<li><em>Shortcuts when focused</em>:<ul>
+<li><code>↑</code> / <code>k</code> / <code>K</code> : Scroll content up</li>
+<li><code>↓</code> / <code>j</code> / <code>J</code> : Scroll content down</li>
+<li><code>PgUp</code> / <code>PgDown</code> : Scroll content page up / down</li>
+<li><code>Home</code> / <code>End</code> : Scroll to top / bottom of content</li>
+<li><code>→</code> : Enter full-screen view mode</li>
+<li><code>←</code> : Exit full-screen view mode</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Tab 2: Graph Tab</h4>
+<ul>
+<li><em>Commit Graph Panel</em>: A full-width panel displaying a visual branch-merging history graph.<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>↑</code> / <code>k</code> / <code>K</code> : Move selection up</li>
+<li><code>↓</code> / <code>j</code> / <code>J</code> : Move selection down</li>
+<li><code>PgUp</code> / <code>PgDn</code> : Scroll graph page</li>
+<li><code>Home</code> / <code>End</code> : Jump to top / bottom</li>
+<li><code>Enter</code> / <code>→</code> : Inspect selected commit (enters Commit Inspection Layout)</li>
+<li><code>y</code> / <code>Y</code> : Yank selected commit hash</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Tab 3: Branches Tab</h4>
+<ul>
+<li><em>Branches Lists (Local left, Remote right)</em>: Displays repository branches.<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>←</code> / <code>→</code> : Switch focus between Local and Remote branches lists</li>
+<li><code>↑</code> / <code>k</code> / <code>K</code> : Move selection up</li>
+<li><code>↓</code> / <code>j</code> / <code>J</code> : Move selection down</li>
+<li><code>PgUp</code> / <code>PgDn</code> / <code>Home</code> / <code>End</code> : Navigate branch lists</li>
+<li><code>Enter</code> : Checkout selected branch</li>
+<li><code>c</code> / <code>C</code> : Create new branch</li>
+<li><code>D</code> : Delete selected branch</li>
+<li><code>m</code> / <code>M</code> : Merge selected branch into current branch</li>
+<li><code>r</code> : Rebase current branch onto selected branch</li>
+<li><code>i</code> / <code>I</code> : Interactive rebase of current branch onto selected branch</li>
+<li><code>p</code> : Pull remote changes (for local branches)</li>
+<li><code>P</code> : Push selected branch to remote (for local branches)</li>
+<li><code>/</code> : Fuzzy search branches</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Tab 4: Tags Tab</h4>
+<ul>
+<li><em>Tags List Panel</em>: Lists local and remote tags.<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>↑</code> / <code>k</code> / <code>K</code> / <code>↓</code> / <code>j</code> / <code>J</code> : Move selection</li>
+<li><code>PgUp</code> / <code>PgDn</code> / <code>Home</code> / <code>End</code> : Navigate tag list</li>
+<li><code>Enter</code> : Checkout selected tag</li>
+<li><code>D</code> : Delete selected tag</li>
+<li><code>p</code> : Push selected tag to remote</li>
+<li><code>P</code> : Push all tags to remote</li>
+<li><code>f</code> / <code>F</code> : Fetch remote tags</li>
+<li><code>/</code> : Fuzzy search tags</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Tab 5: Remotes Tab</h4>
+<ul>
+<li><em>Remotes List Panel</em>: Lists configured remote sources.<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>↑</code> / <code>k</code> / <code>K</code> / <code>↓</code> / <code>j</code> / <code>J</code> : Move selection</li>
+<li><code>PgUp</code> / <code>PgDn</code> / <code>Home</code> / <code>End</code> : Navigate remote list</li>
+<li><code>a</code> / <code>A</code> : Add a new remote</li>
+<li><code>D</code> : Delete selected remote</li>
+<li><code>f</code> / <code>F</code> : Fetch selected remote (opens picker if multiple remotes exist)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Tab 6: Stashes Tab</h4>
+<ul>
+<li><em>Stashes Panel (Left)</em>: Lists stashed changes.<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>↑</code> / <code>k</code> / <code>K</code> / <code>↓</code> / <code>j</code> / <code>J</code> : Move selection</li>
+<li><code>PgUp</code> / <code>PgDn</code> / <code>Home</code> / <code>End</code> : Navigate stashes list</li>
+<li><code>a</code> / <code>A</code> : Apply selected stash</li>
+<li><code>s</code> / <code>S</code> : Create a new stash (opens stash message input)</li>
+<li><code>D</code> : Delete selected stash</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>Stashed Files Panel (Top Right)</em>: Lists files in selected stash.</li>
+<li><em>Stash Diff Panel (Bottom Right)</em>: Diff preview of selected stashed files.</li>
+</ul>
+<h4>Tab 7: Worktrees Tab (Advanced Tab Group)</h4>
+<ul>
+<li><em>Worktrees List Panel</em>: Lists worktrees.<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>↑</code> / <code>k</code> / <code>K</code> / <code>↓</code> / <code>j</code> / <code>J</code> : Move selection</li>
+<li><code>PgUp</code> / <code>PgDn</code> / <code>Home</code> / <code>End</code> : Navigate worktrees list</li>
+<li><code>Enter</code> : Open selected worktree in new Gitwig context (adds to list and focuses it)</li>
+<li><code>a</code> : Add new worktree</li>
+<li><code>D</code> : Remove selected worktree</li>
+<li><code>l</code> : Toggle lock status of selected worktree (asks for reason if locking)</li>
+<li><code>p</code> : Prune stale worktree metadata</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Tab 8: Submodules Tab (Advanced Tab Group)</h4>
+<ul>
+<li><em>Submodules List Panel</em>: Lists submodules.<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>↑</code> / <code>k</code> / <code>K</code> / <code>↓</code> / <code>j</code> / <code>J</code> : Move selection</li>
+<li><code>a</code> : Add new submodule</li>
+<li><code>D</code> : Delete selected submodule</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Tab 9: Reflog Tab (Advanced Tab Group)</h4>
+<ul>
+<li><em>Reflog List Panel</em>: Lists local reference logs.<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>↑</code> / <code>k</code> / <code>K</code> / <code>↓</code> / <code>j</code> / <code>J</code> : Move selection</li>
+<li><code>PgUp</code> / <code>PgDn</code> / <code>Home</code> / <code>End</code> : Navigate reflog list</li>
+<li><code>Enter</code> / <code>Space</code> : Checkout commit OID of selected reflog entry</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Tab 10: Forge Issues Tab (Advanced Tab Group)</h4>
+<ul>
+<li><em>Forge Issues Panel</em>: Displays PRs, issues, and CI/CD status.<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>↑</code> / <code>k</code> / <code>K</code> / <code>↓</code> / <code>j</code> / <code>J</code> : Move selection</li>
+<li><code>PgUp</code> / <code>PgDn</code> / <code>Home</code> / <code>End</code> : Navigate issues list</li>
+<li><code>Enter</code> : Checkout branch corresponding to selected issue</li>
+<li><code>o</code> : Open selected issue in web browser</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Tab 11: Forge PRs Tab (Advanced Tab Group)</h4>
+<ul>
+<li><em>Forge Pull Requests Panel</em>: Displays PR list and details.<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>↑</code> / <code>k</code> / <code>K</code> / <code>↓</code> / <code>j</code> / <code>J</code> : Move selection</li>
+<li><code>PgUp</code> / <code>PgDn</code> / <code>Home</code> / <code>End</code> : Navigate PRs list</li>
+<li><code>Enter</code> : Checkout branch corresponding to selected PR</li>
+<li><code>o</code> : Open selected PR in web browser</li>
+<li><code>n</code> : Add a line comment to the current Pull Request</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>3. Commit Inspection Layout (<code>Mode::Inspect</code>)</h2>
+<p>Workspace layout for inspecting commits and diffs in details.</p>
+<ul>
+<li><em>General Shortcuts</em>:<ul>
+<li><code>Esc</code> / <code>q</code> / <code>Q</code> : Exit inspection, return to Workspace Tab</li>
+<li><code>Tab</code> / <code>w</code> : Cycle focus forward between Staged, Unstaged, Conflicts, and Diff viewer panels</li>
+<li><code>Shift+Tab</code> / <code>W</code> : Cycle focus backward between panels</li>
+<li><code>?</code> : Toggle inspect view shortcut help</li>
+</ul>
+</li>
+<li><em>Staging Lists Shortcuts (Staged/Unstaged/Conflicts)</em>:<ul>
+<li><code>↑</code> / <code>k</code> / <code>K</code> / <code>↓</code> / <code>j</code> / <code>J</code> : Navigate file lists</li>
+<li><code>Enter</code> : Stage selected file (if in Unstaged list) or Unstage selected file (if in Staged list)</li>
+<li><code>a</code> : Stage all changes (if in Unstaged) or Unstage all changes (if in Staged)</li>
+<li><code>x</code> : Discard changes in selected unstaged file (opens confirmation dialog)</li>
+<li><code>X</code> : Discard all unstaged changes in repository (opens confirmation dialog)</li>
+<li><code>c</code> : Start commit message dialog</li>
+<li><code>C</code> : Start commit message dialog with Amend</li>
+<li><code>s</code> / <code>S</code> : Open stashing UI panel</li>
+</ul>
+</li>
+<li><em>Diff Viewer Panel Shortcuts</em>:<ul>
+<li><code>↑</code> / <code>k</code> / <code>K</code> / <code>↓</code> / <code>j</code> / <code>J</code> : Navigate lines / hunks (or scroll content)</li>
+<li><code>PgUp</code> / <code>PgDn</code> / <code>Home</code> / <code>End</code> : Scroll diff viewer</li>
+<li><code>→</code> : Expand diff viewer to full screen (sets <code>inspect_full_diff = true</code>)</li>
+<li><code>←</code> : Exit full-screen diff viewer</li>
+<li><code>l</code> / <code>L</code> : Toggle line-by-line stage/discard mode (switches between Hunk mode and Line mode)</li>
+<li><code>Enter</code> / <code>s</code> : Stage selected line or hunk (when focused on Unstaged file diff)</li>
+<li><code>Enter</code> / <code>u</code> : Unstage selected line or hunk (when focused on Staged file diff)</li>
+<li><code>x</code> / <code>Delete</code> : Discard selected line or hunk (when focused on Unstaged file diff)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>4. Conflict Resolution Panel (Inside Workspace Merge Conflict State)</h2>
+<p>Triggers when staging changes encounters merge conflicts.</p>
+<ul>
+<li><em>Shortcuts (in Staging lists or Diff viewer)</em>:<ul>
+<li><code>o</code> : Accept OURS version of conflict</li>
+<li><code>t</code> : Accept THEIRS version of conflict</li>
+<li><code>r</code> : Mark conflict as resolved</li>
+<li><code>A</code> : Abort merge (opens confirmation dialog)</li>
+<li><code>C</code> : Continue merge (opens confirmation dialog)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>5. Standalone Views (Full Screen / Dedicated Panels)</h2>
+<h3>Logs View (<code>Mode::Logs</code>)</h3>
+<p>Full-screen git commits history.</p>
+<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>Esc</code> / <code>q</code> / <code>Q</code> : Return to Workspace Tab</li>
+<li><code>↑</code> / <code>k</code> / <code>K</code> / <code>↓</code> / <code>j</code> / <code>J</code> : Navigate commits</li>
+<li><code>PgUp</code> / <code>PgDn</code> / <code>Home</code> / <code>End</code> : Scroll commits list</li>
+<li><code>Enter</code> : Inspect selected commit (enters Commit Inspection Layout)</li>
+<li><code>/</code> : Start commit fuzzy search picker</li>
+<li><code>f</code> : Open search column picker popup</li>
+<li><code>G</code> : Load more commits</li>
+</ul>
+</li>
+</ul>
+<h3>Per-File History View (<code>Mode::FileHistory</code>)</h3>
+<p>Commits history of selected file.</p>
+<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>Esc</code> / <code>q</code> / <code>Q</code> : Return to detail view</li>
+<li><code>Tab</code> / <code>w</code> / <code>W</code> / <code>←</code> / <code>→</code> : Toggle keyboard focus between Revisions list and Diff panel</li>
+<li><code>↑</code> / <code>k</code> / <code>K</code> / <code>↓</code> / <code>j</code> / <code>J</code> : Scroll list (when Revisions is focused) or scroll diff (when Diff is focused)</li>
+<li><code>PgUp</code> / <code>PgDn</code> / <code>Home</code> / <code>End</code> : Scroll list / diff</li>
+</ul>
+</li>
+</ul>
+<h3>Debug Logs Panel (<code>Mode::DebugLogs</code>)</h3>
+<p>App logs viewer.</p>
+<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>Esc</code> / <code>q</code> / <code>D</code> / <code>l</code> / <code>L</code> : Return to Home Screen</li>
+<li><code>↑</code> / <code>k</code> / <code>↓</code> / <code>j</code> : Scroll logs line-by-line</li>
+<li><code>PgUp</code> / <code>PgDown</code> : Scroll logs page-by-page</li>
+<li><code>Home</code> / <code>End</code> : Scroll to top / bottom of debug logs</li>
+</ul>
+</li>
+</ul>
+<h3>Settings View (<code>Mode::Settings</code>)</h3>
+<p>Full-screen configuration editor split into Categories and Fields.</p>
+<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>Esc</code> : Return to category sidebar (if in fields panel) or return to Home Screen (if in sidebar)</li>
+<li><code>q</code> / <code>Q</code> : Return to Home Screen</li>
+<li><code>1</code> - <code>5</code> : Jump directly to Category 1-5 (General, Sorting, Scan, Theme, Keybindings)</li>
+<li><code>←</code> / <code>h</code> / <code>H</code> : Focus category sidebar</li>
+<li><code>→</code> / <code>l</code> / <code>L</code> / <code>w</code> / <code>W</code> : Focus fields panel on the right</li>
+<li><code>↑</code> / <code>k</code> / <code>K</code> / <code>↓</code> / <code>j</code> / <code>J</code> : Navigate categories (if focused on sidebar) or fields (if focused on fields)</li>
+<li><code>PgUp</code> / <code>PgDown</code> : Jump selection to top / bottom of active category or fields</li>
+<li><code>Enter</code> : Edit selected setting field (or toggle switch)</li>
+<li><em>Shortcuts when editing a field</em>:<ul>
+<li><code>Enter</code> : Save and commit changes</li>
+<li><code>Esc</code> : Cancel edits and revert field value</li>
+<li><code>Backspace</code> / character keys : Input value</li>
+<li><code>↑</code> / <code>k</code> / <code>↓</code> / <code>j</code> / <code>PgUp</code> / <code>PgDown</code> / <code>Home</code> / <code>End</code> : Navigate items (only when selecting a theme)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Signs &amp; Symbols Legend Popup (<code>Mode::Legend</code>)</h3>
+<p>Quick reference guide to badges, operations, and status indicators.</p>
+<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>Esc</code> / <code>ctrl-q</code> / <code>h</code> : Close legend popup</li>
+<li><code>↑</code> / <code>k</code> / <code>↓</code> / <code>j</code> / <code>PgUp</code> / <code>PgDown</code> / <code>Home</code> / <code>End</code> : Scroll legend content</li>
+</ul>
+</li>
+</ul>
+<h3>About Popup (<code>Mode::About</code>)</h3>
+<p>Information about Gitwig, version details, and creator profile.</p>
+<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>Esc</code> / <code>ctrl-q</code> / <code>V</code> : Close about popup</li>
+</ul>
+</li>
+</ul>
+<h3>App Usage Stats Popup (<code>Mode::StatsDashboard</code>)</h3>
+<p>Dashboard detailing aggregated usage statistics such as session duration, total lines authored, repositories imported, branches/commits created, network activities, and a visual 52-week Activity Heatmap.</p>
+<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>Esc</code> / <code>ctrl-q</code> / <code>U</code> : Close stats dashboard</li>
+</ul>
+</li>
+</ul>
+<h3>Search Columns Selector Popup (<code>Mode::SearchColumnPicker</code>)</h3>
+<p>Picker to select columns to search by (SHA, Message, Author, Date) before entering fuzzy logs search.</p>
+<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>↑</code> / <code>k</code> / <code>↓</code> / <code>j</code> : Navigate search columns (SHA, Message, Author, Date)</li>
+<li><code>Space</code> : Toggle selected search column checkbox</li>
+<li><code>Enter</code> : Confirm and open logs search input modal</li>
+<li><code>Esc</code> / <code>q</code> / <code>Q</code> : Cancel and close columns selector</li>
+</ul>
+</li>
+</ul>
+<h3>Repository Settings Popup (<code>Mode::RepoSettings</code>)</h3>
+<p>Custom per-repository config editor (Theme, Page Size, Max Commits, Editor path, custom Note, Git LFS Tracking/Pull). Accessed via <code>s</code> on the repository Overview screen.</p>
+<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>Esc</code> : Cancel text edit (if editing) or return to Detail view (if in popup)</li>
+<li><code>q</code> / <code>Q</code> : Return to Detail view</li>
+<li><code>↑</code> / <code>k</code> / <code>↓</code> / <code>j</code> : Navigate settings rows</li>
+<li><code>←</code> / <code>h</code> / <code>→</code> / <code>l</code> : Change values for option fields (Theme, Resync on Tab Change)</li>
+<li><code>Enter</code> / <code>Space</code> : Edit/Toggle setting (toggles themes, enters text input for fields, runs LFS Pull, or refreshes LFS details)</li>
+</ul>
+</li>
+</ul>
+<h3>Not Git Repository Popup (<code>Mode::NotGitRepo</code>)</h3>
+<p>Warning dialog shown when selecting a directory that is not a valid Git repository.</p>
+<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>Esc</code> / <code>Enter</code> / <code>q</code> : Acknowledge warning and return to Home Screen</li>
+</ul>
+</li>
+</ul>
+<h3>Help Overlay (<code>Mode::Help</code> / <code>Mode::DetailHelp</code>)</h3>
+<p>Floating keyboard shortcut reference popup shown on top of the Home Screen or Detail View.</p>
+<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>Esc</code> / <code>q</code> / <code>?</code> : Dismiss help overlay</li>
+</ul>
+</li>
+</ul>
+<h3>Global Search View (<code>Mode::GlobalSearch</code>)</h3>
+<p>Full-screen dashboard to search for keywords/code across all tracked repositories simultaneously.</p>
+<ul>
+<li><em>Shortcuts</em>:<ul>
+<li><code>Esc</code> : Clear search and return to Home Screen</li>
+<li><code>Tab</code> : Toggle keyboard focus between search input and matches list</li>
+<li><code>↑</code> / <code>↓</code> : Scroll/navigate matched items</li>
+<li><code>PgUp</code> / <code>PgDn</code> / <code>Home</code> / <code>End</code> : Navigate matches list</li>
+<li><code>Enter</code> : Trigger search (if input is focused) or open selected file match in Detail view (if list is focused)</li>
+<li><code>Backspace</code> / character keys : Input query (when input is focused)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>6. Interactive Search &amp; Picker Overlays</h2>
+<p>Floating modal components with search-as-you-type inputs. Matches are ranked and updated in real time.</p>
+<ul>
+<li><em>Available overlays</em>:<ul>
+<li><strong>RepoJump</strong>: Fuzzy repository navigator (<code>/</code> on Home Screen)</li>
+<li><strong>RepoScanPicker</strong>: Select repository path from scanned directories (<code>a</code> on Home Screen)</li>
+<li><strong>BulkAddScanPicker</strong>: Select directory to scan and import repositories (<code>A</code> on Home Screen)</li>
+<li><strong>BranchSearchInput</strong>: Fuzzy branch checkout picker (<code>/</code> on Branches Tab)</li>
+<li><strong>FileSearchInput</strong>: Fuzzy file finder (<code>/</code> on Files Tab)</li>
+<li><strong>CommitFuzzySearch</strong>: Fuzzy commit hash/message finder (<code>/</code> on Commits Tab or Logs View)</li>
+<li><strong>TagSearchInput</strong>: Fuzzy tag checkout picker (<code>/</code> on Tags Tab)</li>
+</ul>
+</li>
+<li><em>Shortcuts inside overlays</em>:<ul>
+<li><code>Esc</code> : Cancel and close overlay</li>
+<li><code>Enter</code> : Confirm selection</li>
+<li><code>↑</code> / <code>↓</code> : Navigate matched items list</li>
+<li><code>Backspace</code> : Delete search query character</li>
+<li>Character keys : Input fuzzy search query query</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>7. Input Modals &amp; Setup Dialogs</h2>
+<p>Modal text entry boxes for setting up configurations or typing messages.</p>
+<ul>
+<li><em>Available dialogs</em>:<ul>
+<li><strong>Commit Message Dialog</strong>: Type commit message and description. Use <code>Ctrl+H</code> to select from history.</li>
+<li><strong>Branch / Tag / Stash Creation dialogs</strong>: Enter new names.</li>
+<li><strong>Import / Remote Setup dialogs</strong>: Enter URLs, names, and paths.</li>
+<li><strong>Worktree / Submodule Setup dialogs</strong>: Enter paths, branches, or lock reasons.</li>
+<li><strong>Label entry dialogs</strong>: Prompt custom labels for repository grouping.</li>
+</ul>
+</li>
+<li><em>Shortcuts</em>:<ul>
+<li><code>Esc</code> : Cancel / close dialog</li>
+<li><code>Enter</code> : Submit entry (or <code>Ctrl+Enter</code> for multi-line inputs like the Commit Dialog)</li>
+<li><code>Backspace</code> : Erase character</li>
+<li>Character keys : Input characters</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>8. Warning &amp; Confirmation Modals</h2>
+<p>Double-checks before executing hazardous or state-altering actions.</p>
+<h3>The Safety Intercept Feature</h3>
+<p>To prevent accidental data loss due to muscle-memory <code>Enter</code> keypresses, Gitwig intercepts keystrokes on the router level. For any modal classified as a <strong>Destructive Action</strong>, pressing <code>Enter</code> defaults to <strong>Cancel</strong> (<code>ConfirmNo</code>). To confirm a destructive action, the user must explicitly press <code>y</code> or <code>Y</code>. For non-destructive actions, <code>Enter</code> acts normally to confirm.</p>
+<h3>Destructive Actions (<code>Enter</code> acts as Cancel)</h3>
+<ul>
+<li><strong>Discard Changes (<code>Mode::DiscardChangesConfirm</code>)</strong>: Discarding unstaged/staged files, hunks, or lines.</li>
+<li><strong>Delete Branch (<code>Mode::BranchDeleteConfirm</code>)</strong>: Deleting a local or remote tracking branch.</li>
+<li><strong>Delete Tag (<code>Mode::TagDeleteConfirm</code>)</strong>: Deleting a Git tag locally or remotely.</li>
+<li><strong>Delete Stash (<code>Mode::StashDeleteConfirm</code>)</strong>: Dropping/deleting a stash entry from the stashes list.</li>
+<li><strong>Delete Remote (<code>Mode::RemoteDeleteConfirm</code>)</strong>: Removing a configured remote repository connection.</li>
+<li><strong>Delete Submodule (<code>Mode::SubmoduleDeleteConfirm</code>)</strong>: Deleting a submodule reference.</li>
+<li><strong>Abort Merge (<code>Mode::MergeAbortConfirm</code>)</strong>: Aborting an active merge session (reverting resolved conflicts).</li>
+</ul>
+<h3>Non-Destructive Actions (<code>Enter</code> acts as Confirm)</h3>
+<ul>
+<li><p><strong>Branch Checkout (<code>Mode::BranchCheckoutConfirm</code>)</strong>: Switching to another branch.</p>
+</li>
+<li><p><strong>Commit Checkout (<code>Mode::CommitCheckoutConfirm</code>)</strong>: Checking out a commit OID from the Workspace commits list.</p>
+</li>
+<li><p><strong>Tag Checkout (<code>Mode::TagCheckoutConfirm</code>)</strong>: Detaching HEAD to check out a tag.</p>
+</li>
+<li><p><strong>Branch Push (<code>Mode::BranchPushConfirm</code>)</strong>: Pushing commits to remote.</p>
+</li>
+<li><p><strong>Tag Push (<code>Mode::TagPushConfirm</code> / <code>Mode::TagPushAllConfirm</code>)</strong>: Pushing single or all tags to remote.</p>
+</li>
+<li><p><strong>Branch Merge (<code>Mode::BranchMergeConfirm</code>)</strong>: Merging a branch into the active branch.</p>
+</li>
+<li><p><strong>Rebase (<code>Mode::BranchRebaseConfirm</code> / <code>Mode::BranchInteractiveRebaseConfirm</code>)</strong>: Rebasing the current branch.</p>
+</li>
+<li><p><strong>Stash Apply (<code>Mode::StashApplyConfirm</code>)</strong>: Applying a stash onto the working directory.</p>
+</li>
+<li><p><strong>Cherry-Pick (<code>Mode::CherryPickConfirm</code>)</strong>: Cherry-picking a commit.</p>
+</li>
+<li><p><strong>Revert (<code>Mode::RevertConfirm</code>)</strong>: Creating a revert commit for a specific commit.</p>
+</li>
+<li><p><strong>Continue Merge (<code>Mode::MergeContinueConfirm</code>)</strong>: Continuing a merge after conflicts are resolved.</p>
+</li>
+<li><p><strong>Self-Update (<code>Mode::UpdateConfirm</code>)</strong>: Confirming a self-update.</p>
+</li>
+</ul>
+<h3>Shortcuts</h3>
+<ul>
+<li><code>y</code> / <code>Y</code> : Confirm action (required for destructive actions; works for all)</li>
+<li><code>Esc</code> / <code>n</code> / <code>N</code> : Cancel action / close popup</li>
+<li><code>Enter</code> : Confirm action (only works for non-destructive actions; cancels for destructive actions)</li>
+</ul>
+
+        </main>
+    </div>
+</body>
+</html>

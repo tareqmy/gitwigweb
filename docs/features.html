@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Features - Gitwig</title>
+    <title>Core Features - Gitwig</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -27,61 +27,46 @@
     <div class="docs-container container">
         <aside class="sidebar">
             <nav class="sidebar-nav">
-                <div class="nav-group">
-                    <h4 class="nav-group-title">Getting Started</h4>
-                    <a href="index.html">Quickstart</a>
-                    <a href="installation.html">Installation</a>
-                </div>
-                <div class="nav-group">
-                    <h4 class="nav-group-title">User Guide</h4>
-                    <a href="features.html" class="active">Core Features</a>
-                    <a href="keybindings.html">Keybindings</a>
-                </div>
-            </nav>
+  <div class="nav-group">
+    <h4 class="nav-group-title">Getting Started</h4>
+    <a href="index.html">Quickstart</a>
+    <a href="installation.html">Installation</a>
+  </div>
+  <div class="nav-group">
+    <h4 class="nav-group-title">User Guide</h4>
+    <a href="features.html" class="active">Core Features</a>
+    <a href="keybindings.html">Keybindings</a>
+    <a href="status_indicators.html">Status Indicators</a>
+    <a href="detail_view.html">Detail View</a>
+    <a href="panels.html">Panels & UI Windows</a>
+    <a href="configuration.html">Configuration</a>
+    <a href="font_support.html">Font & Symbol Support</a>
+  </div>
+</nav>
         </aside>
 
         <main class="docs-content">
-            <h1>Core Features</h1>
-            <p class="lead">A deep dive into what makes Gitwig incredibly powerful and intuitive.</p>
+            <h1>✨ Features</h1>
+<ul>
+<li><strong>Fullscreen Terminal UI</strong>: Designed using <code>ratatui</code> and <code>crossterm</code> with modern visual styling.</li>
+<li><strong>Config-Driven Layout</strong>: Driven by <code>config.toml</code> for persistence and custom configurations.</li>
+<li><strong>In-App Card Management</strong>: Add, edit, delete, and label items directly from the UI with automatic disk persistence.</li>
+<li><strong>Global Summary Header Bar</strong>: High-level dashboard stats showing aggregate counts of repos, dirty repos, ahead counts, and stale repos.</li>
+<li><strong>Background Auto-Refresh</strong>: Non-blocking background status checking every 10 seconds to keep your repo cards live and up-to-date.</li>
+<li><strong>Uncommitted Work Warning Badge</strong>: Highlights repositories with a <code>⚠ PARTIAL</code> badge when staged and unstaged changes coexist simultaneously.</li>
+<li><strong>Fuzzy Jump Picker</strong>: Instantly jump to any repository by name using the <code>/</code> overlay.</li>
+<li><strong>Favorite / Star Repositories</strong>: Bookmark important repositories with <code>*</code> separate from pinned items.</li>
+<li><strong>Home View Modes</strong>: Press <code>v</code> to cycle between standard 4-row cards, a dense 1-row view (Compact), and a grid-based Tile view.</li>
+<li><strong>Label / Group Collapsing</strong>: Organize repositories on the home page with collapsible label headers.</li>
+<li><strong>Full-Screen Detail View</strong>: Press <code>Enter</code> to open a multi-tab inspection interface (Workspace, Files tree with preview, Graph log, Branches, Tags, Remotes, Stashes, Worktrees, Submodules, Reflog). Tab headers dynamically fallback to their first character under restricted widths to prevent overflow.</li>
+<li><strong>Mode-Aware Status Bar</strong>: Shows contextual shortcuts dynamically with support for collapsed/expanded view (<code>.</code>). When expanded, it dynamically wraps the shortcut items and calculates the exact number of rows needed based on terminal width.</li>
+<li><strong>Global Code Search</strong>: Press <code>Ctrl-F</code> to search for string patterns across all tracked repositories using a fast, multithreaded offline file scanner. Hitting <code>Enter</code> on a result automatically jumps to and opens that repository.</li>
+<li><strong>Automatic Workspace Sync</strong>: Monitor directories (e.g. <code>watch_dirs = [&quot;~/development&quot;]</code>) to automatically sync newly created or cloned repositories to your workspace in real-time.</li>
+<li><strong>Git LFS Integration</strong>: Automatic visual indicators (<code>[LFS]</code>) for tracked files, with LFS workflows (<code>git lfs pull</code> files, <code>git lfs track &lt;pattern&gt;</code>, and checking local LFS storage usage) accessible inside Repository Settings.</li>
+<li><strong>Forge / GitHub Integration</strong>: Dedicated PR/MR Viewer tab (fetching PRs, status checks, reviews, checking out branches, opening in browser), Issue Tracker tab (filtering by assignee/all open), and Code Review Mode (wizard input popups to asynchronously post line comments to PRs).</li>
+<li><strong>App Usage Dashboard</strong>: Press <code>Shift+U</code> to open the usage statistics dashboard tracking session duration, commit counts, repository imports, authored lines of code, Git operations (merges, rebases, fetches), and a visual 52-week Activity Heatmap.</li>
+</ul>
 
-            <hr>
-
-            <section>
-                <h2>Fullscreen Terminal UI</h2>
-                <p>Designed using <code>ratatui</code> and <code>crossterm</code> with modern visual styling. Experience a clean, bordered layout presenting branches, worktrees, and stashes at a glance—reminiscent of SourceTree but right in your terminal.</p>
-            </section>
-
-            <section>
-                <h2>Background Auto-Refresh</h2>
-                <p>Non-blocking background status checking every 10 seconds keeps your repo cards live and up-to-date, without freezing the UI or interrupting your workflow.</p>
-            </section>
-
-            <section>
-                <h2>Full-Screen Detail View</h2>
-                <p>Press <code>Enter</code> on any repo to open a multi-tab inspection interface containing:</p>
-                <ul>
-                    <li>Workspace & Files tree with diff preview</li>
-                    <li>Graph log and history</li>
-                    <li>Branches, Tags, and Remotes</li>
-                    <li>Stashes and Worktrees</li>
-                    <li>Submodules and Reflog</li>
-                </ul>
-            </section>
-
-            <section>
-                <h2>Global Code Search</h2>
-                <p>Press <code>Ctrl-F</code> to search for string patterns across all tracked repositories using a fast, multithreaded offline file scanner. Hitting <code>Enter</code> on a result automatically jumps to and opens that repository.</p>
-            </section>
-
-            <section>
-                <h2>App Usage Dashboard</h2>
-                <p>Press <code>Shift+U</code> to open the usage statistics dashboard tracking session duration, commit counts, repository imports, authored lines of code, Git operations (merges, rebases, fetches), and a visual 52-week Activity Heatmap.</p>
-            </section>
-
-            <section>
-                <h2>Forge / GitHub Integration</h2>
-                <p>Dedicated PR/MR Viewer tab fetching PRs, status checks, and reviews. Code Review Mode features wizard input popups to asynchronously post line comments directly to PRs from the terminal.</p>
-            </section>
         </main>
     </div>
 </body>

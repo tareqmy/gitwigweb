@@ -27,76 +27,86 @@
     <div class="docs-container container">
         <aside class="sidebar">
             <nav class="sidebar-nav">
-                <div class="nav-group">
-                    <h4 class="nav-group-title">Getting Started</h4>
-                    <a href="index.html">Quickstart</a>
-                    <a href="installation.html" class="active">Installation</a>
-                </div>
-                <div class="nav-group">
-                    <h4 class="nav-group-title">User Guide</h4>
-                    <a href="features.html">Core Features</a>
-                    <a href="keybindings.html">Keybindings</a>
-                </div>
-            </nav>
+  <div class="nav-group">
+    <h4 class="nav-group-title">Getting Started</h4>
+    <a href="index.html">Quickstart</a>
+    <a href="installation.html" class="active">Installation</a>
+  </div>
+  <div class="nav-group">
+    <h4 class="nav-group-title">User Guide</h4>
+    <a href="features.html">Core Features</a>
+    <a href="keybindings.html">Keybindings</a>
+    <a href="status_indicators.html">Status Indicators</a>
+    <a href="detail_view.html">Detail View</a>
+    <a href="panels.html">Panels & UI Windows</a>
+    <a href="configuration.html">Configuration</a>
+    <a href="font_support.html">Font & Symbol Support</a>
+  </div>
+</nav>
         </aside>
 
         <main class="docs-content">
-            <h1>Installation</h1>
-            <p class="lead">How to install Gitwig on macOS, Linux, and Windows.</p>
-
-            <hr>
-
-            <section id="prerequisites">
-                <h2>Prerequisites</h2>
-                <p>Gitwig requires the following external tools to be installed on your system:</p>
-                <ul>
-                    <li><strong><code>git</code></strong>: A system installation of <code>git</code> is required in your <code>PATH</code>.</li>
-                    <li><strong><code>ssh</code></strong>: Required if you use SSH-based Git remotes for network operations.</li>
-                </ul>
-            </section>
-
-            <section id="homebrew">
-                <h2>Via Homebrew (macOS / Linux)</h2>
-                <p>You can tap and install Gitwig using Homebrew:</p>
-                <div class="code-block">
-                    <pre><code>brew tap tareqmy/gitwig
-brew install gitwig</code></pre>
-                </div>
-            </section>
-
-            <section id="shell">
-                <h2>Via Shell Script (macOS / Linux)</h2>
-                <p>For a quick installation, run the following command in your terminal:</p>
-                <div class="code-block">
-                    <pre><code>curl -fsSL https://raw.githubusercontent.com/tareqmy/gitwig/master/scripts/install.sh | sh</code></pre>
-                </div>
-            </section>
-
-            <section id="windows">
-                <h2>On Windows</h2>
-                <p>You can install Gitwig on Windows via PowerShell:</p>
-                <div class="code-block">
-                    <pre><code>irm https://raw.githubusercontent.com/tareqmy/gitwig/master/scripts/install.ps1 | iex</code></pre>
-                </div>
-            </section>
-
-            <section id="cargo">
-                <h2>Via Cargo</h2>
-                <p>You can install Gitwig directly from crates.io:</p>
-                <div class="code-block">
-                    <pre><code>cargo install gitwig</code></pre>
-                </div>
-            </section>
-
-            <section id="source">
-                <h2>Building from Source</h2>
-                <div class="code-block">
-                    <pre><code>git clone https://github.com/tareqmy/gitwig.git
+            <h1>🚀 Installation &amp; Running</h1>
+<h2>Prerequisites</h2>
+<p><strong>Gitwig</strong> requires the following external tools to be installed on your system:</p>
+<ul>
+<li><strong><code>git</code></strong>: A system installation of <code>git</code> is required in your <code>PATH</code> for operations like staging, diffing, pushing, pulling, and network syncing.</li>
+<li><strong><code>ssh</code></strong>: Required if you use SSH-based Git remotes for network operations.<blockquote>
+<p>[!NOTE]
+<strong>SSH Host Key Policy:</strong> To prevent connection hangs in the non-interactive TUI context, Gitwig executes git commands with <code>GIT_SSH_COMMAND</code> set to <code>ssh -o StrictHostKeyChecking=accept-new</code>. This automatically trusts and saves new host keys, while verifying existing ones to protect against MITM attacks. If you require a different SSH policy, make sure to add host keys to your <code>known_hosts</code> beforehand.</p>
+</blockquote>
+</li>
+</ul>
+<h3>Via Homebrew (macOS / Linux)</h3>
+<p>You can tap and install <strong>Gitwig</strong> using Homebrew:</p>
+<pre><code class="language-sh">brew tap tareqmy/gitwig
+brew install gitwig
+</code></pre>
+<p><em>Note: If Homebrew prompts you with an &quot;untrusted tap&quot; error, run <code>brew trust tareqmy/gitwig</code> to trust it, and then run <code>brew install gitwig</code> again.</em></p>
+<h3>Via Shell Script (macOS / Linux)</h3>
+<p>For a quick installation, run the following command in your terminal:</p>
+<pre><code class="language-sh">curl -fsSL https://raw.githubusercontent.com/tareqmy/gitwig/master/scripts/install.sh | sh
+</code></pre>
+<h3>On Windows</h3>
+<p>You can install <strong>Gitwig</strong> on Windows via PowerShell:</p>
+<p>Run the following command in PowerShell:</p>
+<pre><code class="language-powershell">irm https://raw.githubusercontent.com/tareqmy/gitwig/master/scripts/install.ps1 | iex
+</code></pre>
+<ul>
+<li><strong>Benefits</strong>: Quick command-line installation to your user profile directory (<code>%USERPROFILE%\.gitwig\bin</code>) without requiring administrator privileges.</li>
+<li><strong>Updating</strong>: Supports the in-app self-updater, which will automatically run <code>install.ps1</code> to download newer versions.</li>
+</ul>
+<h3>Via Cargo</h3>
+<p>You can install <strong>Gitwig</strong> directly from <a href="https://crates.io/crates/gitwig">crates.io</a>:</p>
+<pre><code class="language-sh">cargo install gitwig
+</code></pre>
+<h3>Building from Source</h3>
+<p>Alternatively, you can clone the repository and build it from source:</p>
+<pre><code class="language-sh">git clone https://github.com/tareqmy/gitwig.git
 cd gitwig
-cargo build --release</code></pre>
-                </div>
-                <p>The compiled binary will be located at <code>target/release/gitwig</code>.</p>
-            </section>
+cargo build --release
+</code></pre>
+<p>The compiled binary will be located at <code>target/release/gitwig</code>. You can copy it to a directory in your <code>$PATH</code> or run it directly.</p>
+<h3>Uninstalling</h3>
+<p>If you installed Gitwig via the shell script, you can uninstall it at any time using:</p>
+<pre><code class="language-sh">curl -fsSL https://raw.githubusercontent.com/tareqmy/gitwig/master/scripts/uninstall.sh | sh
+</code></pre>
+<p>If you installed Gitwig via the PowerShell script, you can uninstall it at any time using:</p>
+<pre><code class="language-powershell">irm https://raw.githubusercontent.com/tareqmy/gitwig/master/scripts/uninstall.ps1 | iex
+</code></pre>
+<h3>Running</h3>
+<p>You can launch <strong>Gitwig</strong> using either the full name or the short command alias <code>gtg</code>:</p>
+<pre><code class="language-sh"># Run with default config resolution
+gitwig
+# Or using the shortcut:
+gtg
+
+# Run with an explicit config path
+gitwig path/to/config.toml
+# Or:
+gtg path/to/config.toml
+</code></pre>
+
         </main>
     </div>
 </body>
