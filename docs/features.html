@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Gitwig</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="logo-icon">🌿</span>
+                    <span class="logo-text">Gitwig</span>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="https://github.com/tareqmy/gitwig" class="btn btn-outline" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="docs-container container">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <div class="nav-group">
+                    <h4 class="nav-group-title">Getting Started</h4>
+                    <a href="index.html">Quickstart</a>
+                    <a href="installation.html">Installation</a>
+                </div>
+                <div class="nav-group">
+                    <h4 class="nav-group-title">User Guide</h4>
+                    <a href="features.html" class="active">Core Features</a>
+                    <a href="keybindings.html">Keybindings</a>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="docs-content">
+            <h1>Core Features</h1>
+            <p class="lead">A deep dive into what makes Gitwig incredibly powerful and intuitive.</p>
+
+            <hr>
+
+            <section>
+                <h2>Fullscreen Terminal UI</h2>
+                <p>Designed using <code>ratatui</code> and <code>crossterm</code> with modern visual styling. Experience a clean, bordered layout presenting branches, worktrees, and stashes at a glance—reminiscent of SourceTree but right in your terminal.</p>
+            </section>
+
+            <section>
+                <h2>Background Auto-Refresh</h2>
+                <p>Non-blocking background status checking every 10 seconds keeps your repo cards live and up-to-date, without freezing the UI or interrupting your workflow.</p>
+            </section>
+
+            <section>
+                <h2>Full-Screen Detail View</h2>
+                <p>Press <code>Enter</code> on any repo to open a multi-tab inspection interface containing:</p>
+                <ul>
+                    <li>Workspace & Files tree with diff preview</li>
+                    <li>Graph log and history</li>
+                    <li>Branches, Tags, and Remotes</li>
+                    <li>Stashes and Worktrees</li>
+                    <li>Submodules and Reflog</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Global Code Search</h2>
+                <p>Press <code>Ctrl-F</code> to search for string patterns across all tracked repositories using a fast, multithreaded offline file scanner. Hitting <code>Enter</code> on a result automatically jumps to and opens that repository.</p>
+            </section>
+
+            <section>
+                <h2>App Usage Dashboard</h2>
+                <p>Press <code>Shift+U</code> to open the usage statistics dashboard tracking session duration, commit counts, repository imports, authored lines of code, Git operations (merges, rebases, fetches), and a visual 52-week Activity Heatmap.</p>
+            </section>
+
+            <section>
+                <h2>Forge / GitHub Integration</h2>
+                <p>Dedicated PR/MR Viewer tab fetching PRs, status checks, and reviews. Code Review Mode features wizard input popups to asynchronously post line comments directly to PRs from the terminal.</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

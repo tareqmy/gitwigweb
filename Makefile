@@ -8,6 +8,7 @@ help:
 	@echo "  make dev      - Start the local development server (npm run dev)"
 	@echo "  make build    - Build the website for production (npm run build)"
 	@echo "  make preview  - Preview the production build locally (npm run preview)"
+	@echo "  make deploy   - Build and deploy to S3 (npm run deploy)"
 	@echo ""
 
 install:
@@ -21,3 +22,6 @@ build:
 
 preview:
 	npm run preview
+
+deploy:
+	npm run deploy

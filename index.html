@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gitwig | Terminal Git UI & SourceTree Alternative</title>
     <meta name="description" content="Gitwig is a lightweight, keyboard-driven Terminal Git UI built in Rust. A fast, minimal alternative to SourceTree and lazygit.">
+    <meta property="og:title" content="Gitwig | Terminal Git UI">
+    <meta property="og:description" content="A lightweight, keyboard-driven alternative to SourceTree and lazygit built in Rust.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gitwig.dev">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +46,7 @@
                 </p>
                 <div class="cta-group">
                     <div class="install-card">
-                        <code class="install-command">cargo install gitwig</code>
+                        <code class="install-command">curl -fsSL https://raw.githubusercontent.com/tareqmy/gitwig/master/scripts/install.sh | sh</code>
                         <button id="copyBtn" class="copy-btn" aria-label="Copy to clipboard">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                         </button>
@@ -90,6 +95,21 @@
                     <div class="feature-icon">🎯</div>
                     <h3>Intuitive UI</h3>
                     <p>A clean, bordered layout presenting branches, worktrees, and stashes at a glance—reminiscent of SourceTree but in the terminal.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Global Code Search</h3>
+                    <p>Press Ctrl-F to search for string patterns across all tracked repositories using a fast, multithreaded offline file scanner.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Usage Dashboard</h3>
+                    <p>Track your session duration, commit counts, authored lines of code, and view a visual 52-week activity heatmap.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Auto-Refresh</h3>
+                    <p>Non-blocking background status checking keeps your repo cards live and up-to-date without freezing the UI.</p>
                 </div>
             </div>
         </section>

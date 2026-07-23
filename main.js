@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const copyBtn = document.getElementById('copyBtn');
-    const commandText = 'cargo install gitwig';
+    const commandText = 'curl -fsSL https://raw.githubusercontent.com/tareqmy/gitwig/master/scripts/install.sh | sh';
 
     if (copyBtn) {
         copyBtn.addEventListener('click', async () => {

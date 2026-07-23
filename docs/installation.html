@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation - Gitwig</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="logo-icon">🌿</span>
+                    <span class="logo-text">Gitwig</span>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="https://github.com/tareqmy/gitwig" class="btn btn-outline" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="docs-container container">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <div class="nav-group">
+                    <h4 class="nav-group-title">Getting Started</h4>
+                    <a href="index.html">Quickstart</a>
+                    <a href="installation.html" class="active">Installation</a>
+                </div>
+                <div class="nav-group">
+                    <h4 class="nav-group-title">User Guide</h4>
+                    <a href="features.html">Core Features</a>
+                    <a href="keybindings.html">Keybindings</a>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="docs-content">
+            <h1>Installation</h1>
+            <p class="lead">How to install Gitwig on macOS, Linux, and Windows.</p>
+
+            <hr>
+
+            <section id="prerequisites">
+                <h2>Prerequisites</h2>
+                <p>Gitwig requires the following external tools to be installed on your system:</p>
+                <ul>
+                    <li><strong><code>git</code></strong>: A system installation of <code>git</code> is required in your <code>PATH</code>.</li>
+                    <li><strong><code>ssh</code></strong>: Required if you use SSH-based Git remotes for network operations.</li>
+                </ul>
+            </section>
+
+            <section id="homebrew">
+                <h2>Via Homebrew (macOS / Linux)</h2>
+                <p>You can tap and install Gitwig using Homebrew:</p>
+                <div class="code-block">
+                    <pre><code>brew tap tareqmy/gitwig
+brew install gitwig</code></pre>
+                </div>
+            </section>
+
+            <section id="shell">
+                <h2>Via Shell Script (macOS / Linux)</h2>
+                <p>For a quick installation, run the following command in your terminal:</p>
+                <div class="code-block">
+                    <pre><code>curl -fsSL https://raw.githubusercontent.com/tareqmy/gitwig/master/scripts/install.sh | sh</code></pre>
+                </div>
+            </section>
+
+            <section id="windows">
+                <h2>On Windows</h2>
+                <p>You can install Gitwig on Windows via PowerShell:</p>
+                <div class="code-block">
+                    <pre><code>irm https://raw.githubusercontent.com/tareqmy/gitwig/master/scripts/install.ps1 | iex</code></pre>
+                </div>
+            </section>
+
+            <section id="cargo">
+                <h2>Via Cargo</h2>
+                <p>You can install Gitwig directly from crates.io:</p>
+                <div class="code-block">
+                    <pre><code>cargo install gitwig</code></pre>
+                </div>
+            </section>
+
+            <section id="source">
+                <h2>Building from Source</h2>
+                <div class="code-block">
+                    <pre><code>git clone https://github.com/tareqmy/gitwig.git
+cd gitwig
+cargo build --release</code></pre>
+                </div>
+                <p>The compiled binary will be located at <code>target/release/gitwig</code>.</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

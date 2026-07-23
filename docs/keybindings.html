@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keybindings - Gitwig</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="logo-icon">🌿</span>
+                    <span class="logo-text">Gitwig</span>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="https://github.com/tareqmy/gitwig" class="btn btn-outline" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="docs-container container">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <div class="nav-group">
+                    <h4 class="nav-group-title">Getting Started</h4>
+                    <a href="index.html">Quickstart</a>
+                    <a href="installation.html">Installation</a>
+                </div>
+                <div class="nav-group">
+                    <h4 class="nav-group-title">User Guide</h4>
+                    <a href="features.html">Core Features</a>
+                    <a href="keybindings.html" class="active">Keybindings</a>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="docs-content">
+            <h1>Keybindings</h1>
+            <p class="lead">Gitwig is a fully keyboard-driven application. Mastering these shortcuts will make you incredibly fast.</p>
+
+            <hr>
+
+            <section>
+                <h2>Global Navigation</h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>j</code> / <code>↓</code></td>
+                                <td>Move cursor down</td>
+                            </tr>
+                            <tr>
+                                <td><code>k</code> / <code>↑</code></td>
+                                <td>Move cursor up</td>
+                            </tr>
+                            <tr>
+                                <td><code>Enter</code></td>
+                                <td>Open Detail/Inspect view for the selected item</td>
+                            </tr>
+                            <tr>
+                                <td><code>Esc</code> / <code>q</code></td>
+                                <td>Close current modal or quit application (from main menu)</td>
+                            </tr>
+                            <tr>
+                                <td><code>?</code></td>
+                                <td>Toggle the Help Overlay (Context Aware)</td>
+                            </tr>
+                            <tr>
+                                <td><code>Ctrl+F</code></td>
+                                <td>Open Global Code Search</td>
+                            </tr>
+                            <tr>
+                                <td><code>/</code></td>
+                                <td>Open Fuzzy Jump Picker to search repos by name</td>
+                            </tr>
+                            <tr>
+                                <td><code>Shift+U</code></td>
+                                <td>Open Usage Dashboard</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section>
+                <h2>Repository Management</h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>a</code></td>
+                                <td>Add a new repository tracking card</td>
+                            </tr>
+                            <tr>
+                                <td><code>e</code></td>
+                                <td>Edit selected repository card</td>
+                            </tr>
+                            <tr>
+                                <td><code>d</code></td>
+                                <td>Remove repository tracking card (Does not delete files)</td>
+                            </tr>
+                            <tr>
+                                <td><code>*</code></td>
+                                <td>Toggle Star / Favorite for selected repository</td>
+                            </tr>
+                            <tr>
+                                <td><code>v</code></td>
+                                <td>Cycle view modes (Standard, Compact, Grid)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
