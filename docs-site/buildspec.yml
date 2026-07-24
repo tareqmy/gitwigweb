@@ -20,7 +20,7 @@ phases:
       - npm run build
   post_build:
     commands:
-      - aws s3 sync docs-site/out/ s3://${DOCS_S3_BUCKET} --delete
+      - aws s3 sync $CODEBUILD_SRC_DIR/docs-site/out/ s3://${DOCS_S3_BUCKET} --delete
       - aws cloudfront create-invalidation --distribution-id ${DOCS_CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
 
 artifacts:
