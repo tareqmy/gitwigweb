@@ -6,6 +6,9 @@ import './custom.css'
 
 export const metadata = {
   title: 'Gitwig Docs',
+  icons: {
+    icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🌿</text></svg>',
+  },
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -13,7 +16,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <Navbar 
       logo={<b>Gitwig</b>} 
       projectLink="https://github.com/tareqmy/gitwig" 
-    />
+    >
+      <a href="https://gitwig.dev" style={{ fontSize: '0.875rem', fontWeight: 500 }}>
+        ← Back to gitwig.dev
+      </a>
+    </Navbar>
   )
   const footer = <Footer>MIT 2026</Footer>
 

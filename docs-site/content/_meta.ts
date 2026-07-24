@@ -3,12 +3,6 @@ export default {
     title: 'Introduction',
     type: 'page',
   },
-  'website-link': {
-    title: '← Back to gitwig.dev',
-    type: 'page',
-    href: 'https://gitwig.dev',
-    newWindow: false,
-  },
   installation: 'Installation',
   features: 'Features',
   configuration: 'Configuration',
