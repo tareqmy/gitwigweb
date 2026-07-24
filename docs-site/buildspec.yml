@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 22
+    commands:
+      - cd docs-site
+      - npm ci
+  build:
+    commands:
+      - cd docs-site
+      - npm run build
+  post_build:
+    commands:
+      - aws s3 sync docs-site/out/ s3://${DOCS_S3_BUCKET} --delete
+      - aws cloudfront create-invalidation --distribution-id ${DOCS_CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'docs-site/out'

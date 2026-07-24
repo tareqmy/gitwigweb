@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
+
+:root {
+  --nextra-primary-hue: 145deg;
+  --nextra-primary-saturation: 63%;
+  --nextra-primary-lightness: 42%;
+  --nextra-bg: 255, 255, 255;
+  --nextra-content-width: 90rem;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Fira Code', ui-monospace, monospace;
+}
+
+.dark {
+  --nextra-primary-hue: 145deg;
+  --nextra-primary-saturation: 63%;
+  --nextra-primary-lightness: 49%;
+  --nextra-bg: 9, 9, 11;
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+/* Match gitwig.dev's glassmorphism navbar */
+.nextra-navbar-blur {
+  backdrop-filter: blur(12px) !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(161, 161, 170, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(161, 161, 170, 0.5);
+}
