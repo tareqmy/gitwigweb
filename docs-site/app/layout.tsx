@@ -5,7 +5,9 @@ import 'nextra-theme-docs/style.css'
 import './custom.css'
 
 export const metadata = {
-  title: 'Gitwig Docs',
+  title: 'Gitwig Docs - Terminal Git UI',
+  description: 'Documentation for Gitwig, a fast, keyboard-driven Terminal User Interface (TUI) for Git built in Rust. A SourceTree alternative for the terminal.',
+  keywords: ['gitwig', 'git tui', 'terminal git ui', 'rust git client', 'lazygit alternative', 'sourcetree alternative', 'git terminal interface', 'git gui', 'gitwig dev'],
   icons: {
     icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🌿</text></svg>',
   },
