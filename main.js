@@ -26,12 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const moonIcon = document.querySelector('.moon-icon');
     
     if (themeToggle && sunIcon && moonIcon) {
-        // Check saved theme or system preference
-        const savedTheme = localStorage.getItem('theme');
-        const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-        
-        if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
-            document.body.classList.add('light-theme');
+        // Initial icon setup based on the inline script
+        if (document.body.classList.contains('light-theme')) {
             sunIcon.style.display = 'block';
             moonIcon.style.display = 'none';
         } else {
@@ -54,99 +50,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Documentation Auto-scroll to Next/Prev Page
-    const docsContainer = document.querySelector('.docs-container');
-    if (docsContainer) {
-        let isNavigating = false;
-        
-        const indicator = document.createElement('div');
-        indicator.style.position = 'fixed';
-        indicator.style.left = '50%';
-        indicator.style.transform = 'translateX(-50%)';
-        indicator.style.padding = '0.5rem 1.5rem';
-        indicator.style.background = 'var(--color-accent)';
-        indicator.style.color = '#000';
-        indicator.style.borderRadius = '20px';
-        indicator.style.fontWeight = '600';
-        indicator.style.fontSize = '0.9rem';
-        indicator.style.opacity = '0';
-        indicator.style.transition = 'all 0.3s ease';
-        indicator.style.zIndex = '1000';
-        indicator.style.pointerEvents = 'none';
-        indicator.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
-        document.body.appendChild(indicator);
 
-        function triggerNavigation(direction) {
-            if (isNavigating) return;
-            
-            const activeLink = document.querySelector('.sidebar-nav a.active');
-            if (!activeLink) return;
-            
-            const links = Array.from(document.querySelectorAll('.sidebar-nav a:not(.nav-group-title)'));
-            const currentIndex = links.indexOf(activeLink);
-            
-            let targetLink = null;
-            if (direction === 'next' && currentIndex < links.length - 1) {
-                targetLink = links[currentIndex + 1];
-                indicator.innerText = 'Loading next page...';
-                indicator.style.bottom = '20px';
-                indicator.style.top = 'auto';
-            } else if (direction === 'prev' && currentIndex > 0) {
-                targetLink = links[currentIndex - 1];
-                indicator.innerText = 'Loading previous page...';
-                indicator.style.top = '20px';
-                indicator.style.bottom = 'auto';
-            }
-            
-            if (targetLink) {
-                isNavigating = true;
-                indicator.style.opacity = '1';
-                
-                // Fade out animation
-                setTimeout(() => {
-                    document.body.style.transition = 'opacity 0.4s ease';
-                    document.body.style.opacity = '0';
-                    
-                    setTimeout(() => {
-                        window.location.href = targetLink.href;
-                    }, 400);
-                }, 500); // Small pause so they see the indicator
-            }
-        }
-
-        // Desktop wheel handling
-        window.addEventListener('wheel', (e) => {
-            if (isNavigating) return;
-            const isAtTop = window.scrollY <= 0;
-            const isAtBottom = Math.ceil(window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2;
-            
-            if (isAtTop && e.deltaY < -20) {
-                triggerNavigation('prev');
-            } else if (isAtBottom && e.deltaY > 20) {
-                triggerNavigation('next');
-            }
-        }, { passive: true });
-
-        // Mobile touch handling
-        let touchStartY = 0;
-        window.addEventListener('touchstart', (e) => {
-            touchStartY = e.touches[0].clientY;
-        }, { passive: true });
-        
-        window.addEventListener('touchend', (e) => {
-            if (isNavigating) return;
-            const touchEndY = e.changedTouches[0].clientY;
-            const deltaY = touchStartY - touchEndY; // positive means swipe up (scrolling down)
-            
-            const isAtTop = window.scrollY <= 0;
-            const isAtBottom = Math.ceil(window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2;
-            
-            // Require a significant swipe to trigger
-            if (isAtTop && deltaY < -40) {
-                triggerNavigation('prev');
-            } else if (isAtBottom && deltaY > 40) {
-                triggerNavigation('next');
-            }
-        }, { passive: true });
-    }
 });

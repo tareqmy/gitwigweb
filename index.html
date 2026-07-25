@@ -29,6 +29,13 @@
     <link rel="canonical" href="https://tareqmy.github.io/gitwig/">
 </head>
 <body>
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+            document.body.classList.add('light-theme');
+        }
+    </script>
     <div class="glow-blob blob-1"></div>
     <div class="glow-blob blob-2"></div>
     
