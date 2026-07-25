@@ -11,6 +11,5 @@ export default {
   'font-support': 'Font Support',
   'status-indicators': 'Status Indicators',
   panels: 'Panels',
-  readme: 'README',
   changelog: 'Changelog',
 }

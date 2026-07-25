@@ -48,15 +48,6 @@ for file in "$SRC_ABS/docs"/*.md; do
   fi
 done
 
-# Copy README.md
-if [ -f "$SRC_ABS/README.md" ]; then
-  echo "Copying README.md..."
-  echo "---" > "$CONTENT_DIR/readme.mdx"
-  echo "title: Readme" >> "$CONTENT_DIR/readme.mdx"
-  echo "---" >> "$CONTENT_DIR/readme.mdx"
-  echo "" >> "$CONTENT_DIR/readme.mdx"
-  cat "$SRC_ABS/README.md" >> "$CONTENT_DIR/readme.mdx"
-fi
 
 # Copy CHANGELOG.md
 if [ -f "$SRC_ABS/CHANGELOG.md" ]; then
