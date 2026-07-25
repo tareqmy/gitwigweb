@@ -20,6 +20,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Scroll Reveal Logic
+    const revealElements = document.querySelectorAll('.feature-card, .section-title');
+    
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    });
+
+    revealElements.forEach(el => {
+        el.classList.add('reveal');
+        revealObserver.observe(el);
+    });
+
     // Theme Toggle Logic
     const themeToggle = document.getElementById('themeToggle');
     const sunIcon = document.querySelector('.sun-icon');

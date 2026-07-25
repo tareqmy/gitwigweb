@@ -45,6 +45,13 @@ body {
 }
 
 /* Background effects */
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.05); }
+    66% { transform: translate(-20px, 20px) scale(0.95); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
 .glow-blob {
     position: absolute;
     width: 600px;
@@ -53,6 +60,7 @@ body {
     border-radius: 50%;
     z-index: -1;
     pointer-events: none;
+    animation: float 20s ease-in-out infinite;
 }
 
 body.light-theme .glow-blob {
@@ -68,6 +76,7 @@ body.light-theme .glow-blob {
     bottom: 20%;
     right: -200px;
     background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
+    animation-delay: -10s;
 }
 
 body.light-theme .blob-2 {
@@ -380,6 +389,12 @@ body.light-theme .blob-2 {
 .feature-icon {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.15) translateY(-5px);
 }
 
 .feature-card h3 {
@@ -390,6 +405,18 @@ body.light-theme .blob-2 {
 .feature-card p {
     color: var(--color-text-secondary);
     font-size: 0.95rem;
+}
+
+/* Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Footer */
