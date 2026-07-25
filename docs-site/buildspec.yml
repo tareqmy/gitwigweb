@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 22
+    commands:
+      - cd $CODEBUILD_SRC_DIR/docs-site
+      - npm ci
+  build:
+    commands:
+      - cd $CODEBUILD_SRC_DIR/docs-site
+      - |
+        if [ -n "$CODEBUILD_SRC_DIR_gitwig" ]; then
+          echo "Syncing docs from secondary source: $CODEBUILD_SRC_DIR_gitwig"
+          bash scripts/sync-docs.sh "$CODEBUILD_SRC_DIR_gitwig"
+        else
+          echo "Warning: CODEBUILD_SRC_DIR_gitwig is not set. Assuming docs are already synced."
+        fi
+      - npm run build
+  post_build:
+    commands:
+      - aws s3 sync $CODEBUILD_SRC_DIR/docs-site/out/ s3://${DOCS_S3_BUCKET} --delete
+      - aws cloudfront create-invalidation --distribution-id ${DOCS_CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'docs-site/out'
