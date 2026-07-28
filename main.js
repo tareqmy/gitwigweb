@@ -71,5 +71,99 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // GitHub Stars Fetcher with localStorage Caching
+    async function fetchGitHubStars() {
+        const cacheKey = 'gitwig_github_stars';
+        const cacheTimeKey = 'gitwig_github_stars_time';
+        const CACHE_DURATION = 3600 * 1000; // 1 hour
 
+        const updateStarUI = (count) => {
+            const formatted = typeof count === 'number'
+                ? (count >= 1000 ? (count / 1000).toFixed(1) + 'k' : count.toString())
+                : count;
+
+            const navStarCount = document.querySelector('#github-stars-nav .star-count');
+            if (navStarCount) navStarCount.textContent = formatted;
+        };
+
+        const cachedCount = localStorage.getItem(cacheKey);
+        const cachedTime = localStorage.getItem(cacheTimeKey);
+
+        if (cachedCount && cachedTime && (Date.now() - parseInt(cachedTime, 10) < CACHE_DURATION)) {
+            updateStarUI(parseInt(cachedCount, 10));
+            return;
+        }
+
+        try {
+            const res = await fetch('https://api.github.com/repos/tareqmy/gitwig');
+            if (res.ok) {
+                const data = await res.json();
+                if (typeof data.stargazers_count === 'number') {
+                    localStorage.setItem(cacheKey, data.stargazers_count.toString());
+                    localStorage.setItem(cacheTimeKey, Date.now().toString());
+                    updateStarUI(data.stargazers_count);
+                }
+            } else if (cachedCount) {
+                updateStarUI(parseInt(cachedCount, 10));
+            }
+        } catch (err) {
+            console.warn('Could not fetch GitHub stars:', err);
+            if (cachedCount) {
+                updateStarUI(parseInt(cachedCount, 10));
+            }
+        }
+    }
+
+    fetchGitHubStars();
+
+    // Crates.io Crate Stats Fetcher
+    async function fetchCratesStats() {
+        const cacheKey = 'gitwig_crates_metrics';
+        const cacheTimeKey = 'gitwig_crates_metrics_time';
+        const CACHE_DURATION = 3600 * 1000; // 1 hour
+
+        const updateMetricsUI = (crateData) => {
+            const totalDl = document.getElementById('stat-total-downloads');
+            const recentDl = document.getElementById('stat-recent-downloads');
+            const version = document.getElementById('stat-version');
+
+            if (totalDl) totalDl.textContent = (crateData.downloads || 0).toLocaleString();
+            if (recentDl) recentDl.textContent = (crateData.recent_downloads || 0).toLocaleString();
+            if (version) version.textContent = `v${crateData.max_version || '0.0.0'}`;
+        };
+
+        const cachedData = localStorage.getItem(cacheKey);
+        const cachedTime = localStorage.getItem(cacheTimeKey);
+
+        if (cachedData && cachedTime && (Date.now() - parseInt(cachedTime, 10) < CACHE_DURATION)) {
+            try {
+                const crateData = JSON.parse(cachedData);
+                if (crateData) {
+                    updateMetricsUI(crateData);
+                    return;
+                }
+            } catch (e) {
+                console.warn('Stale metrics cache parse error:', e);
+            }
+        }
+
+        try {
+            const headers = { 'User-Agent': 'gitwig-website (https://gitwig.dev)' };
+            const res = await fetch('https://crates.io/api/v1/crates/gitwig', { headers });
+
+            if (res.ok) {
+                const json = await res.json();
+                const crateData = json.crate;
+                if (crateData) {
+                    updateMetricsUI(crateData);
+                    localStorage.setItem(cacheKey, JSON.stringify(crateData));
+                    localStorage.setItem(cacheTimeKey, Date.now().toString());
+                }
+            }
+        } catch (err) {
+            console.warn('Could not fetch crates.io metrics:', err);
+        }
+    }
+
+    fetchCratesStats();
 });
