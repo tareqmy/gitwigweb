@@ -114,6 +114,11 @@ body.light-theme .blob-2 {
     font-weight: 700;
 }
 
+.logo-mark {
+    color: var(--color-accent);
+    flex-shrink: 0;
+}
+
 .nav-links {
     display: flex;
     align-items: center;
