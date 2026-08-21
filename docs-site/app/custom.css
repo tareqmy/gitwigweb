@@ -1,20 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
+/* Gitwig Verdigris brand.
+   Source of truth: branding/theme.json in the gitwig repo.
+   Verdigris #4db08a is hsl(157, 39%, 50%); the light theme drops to 39%
+   lightness (#3c8a6b) because the bright value only reaches ~2.5:1 on white. */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  --nextra-primary-hue: 145deg;
-  --nextra-primary-saturation: 63%;
-  --nextra-primary-lightness: 42%;
-  --nextra-bg: 255, 255, 255;
+  --nextra-primary-hue: 157deg;
+  --nextra-primary-saturation: 39%;
+  --nextra-primary-lightness: 39%;
+  --nextra-bg: 250, 246, 241;
   --nextra-content-width: 90rem;
+
+  --font-display: 'Rajdhani', 'Inter', system-ui, sans-serif;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --font-mono: 'Fira Code', ui-monospace, monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --gw-verdigris: #3c8a6b;
+  --gw-copper: #a95c31;
+  --gw-border: #e3dad0;
 }
 
 .dark {
-  --nextra-primary-hue: 145deg;
-  --nextra-primary-saturation: 63%;
-  --nextra-primary-lightness: 49%;
-  --nextra-bg: 9, 9, 11;
+  --nextra-primary-hue: 157deg;
+  --nextra-primary-saturation: 39%;
+  --nextra-primary-lightness: 50%;
+  --nextra-bg: 20, 16, 14;
+
+  --gw-verdigris: #4db08a;
+  --gw-copper: #bd6b3d;
+  --gw-border: #2a2320;
+}
+
+/* Rajdhani carries display sizes, matching the wordmark; Inter carries body copy. */
+h1, h2, h3, .gw-wordmark {
+  font-family: var(--font-display);
+  letter-spacing: 0.005em;
+}
+
+.gw-wordmark {
+  font-size: 1em;
+  text-transform: lowercase;
+}
+
+/* Same lockup proportions as gitwig.dev, taken from branding/lockup.svg:
+   mark ink is 1.96x the wordmark size, gap 0.528em, and the mark's ink centre
+   sits 0.419em below the wordmark's. */
+.gw-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.528em;
+  font-size: 1.25rem;
+}
+
+.gw-mark {
+  display: block;
+  height: 1.96em;
+  aspect-ratio: 63.18 / 95.2;
+  transform: translateY(0.419em);
+  color: var(--gw-verdigris);
 }
 
 html {

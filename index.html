@@ -9,6 +9,7 @@
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="theme-color" content="#14100e">
     
     
     
@@ -18,7 +19,7 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <meta name="description" content="Gitwig is a fast, keyboard-driven Terminal User Interface (TUI) for Git, built in Rust. A modern SourceTree and lazygit alternative for your terminal.">
     <meta property="og:title" content="Gitwig | Fast Git TUI & SourceTree Alternative">
@@ -57,14 +58,34 @@
             document.body.classList.add('light-theme');
         }
     </script>
+    <!-- Brand mark, defined once. Geometry mirrors branding/logo-mark.svg in the
+         gitwig repo; the leaf and ring interior are masked out so the mark is
+         true negative space and works on either theme. -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="gw-mark" viewBox="-7.5 34.8 63.18 95.2">
+      <mask id="gw-mark-cut" maskUnits="userSpaceOnUse" x="-16" y="24" width="88" height="116">
+        <rect x="-16" y="24" width="88" height="116" fill="#fff"/>
+        <path d="M8 8 C21 7 29 15 27 40 C13 41 6 29 8 8 Z" transform="translate(13 40)" fill="#000"/>
+        <circle cx="13" cy="109" r="7" fill="#000"/>
+      </mask>
+      <g mask="url(#gw-mark-cut)">
+        <path d="M28.2 93.24H24.24Q15 93.24 10.26 88.2Q5.52 83.16 5.52 73.68V54.36Q5.52 44.88 10.68 39.84Q15.84 34.8 25.32 34.8H53.04Q55.68 34.8 55.68 37.32V96.48Q55.68 105.84 50.46 110.88Q45.24 115.92 35.88 115.92H12.84Q11.4 115.92 10.86 115.38Q10.32 114.84 10.32 113.52V105.24Q10.32 102.72 12.84 102.72H33.36Q37.2 102.72 38.82 101.1Q40.44 99.48 40.44 95.76V86.64H39.96Q38.64 89.88 35.28 91.56Q31.92 93.24 28.2 93.24ZM40.44 70.92V49.32Q40.44 48 39 48H27.72Q23.88 48 22.32 49.62Q20.76 51.24 20.76 55.08V72.96Q20.76 76.8 22.32 78.36Q23.88 79.92 27.72 79.92H32.16Q40.44 79.92 40.44 70.92Z" fill="currentColor"/>
+        <rect x="15" y="42" width="32" height="46" rx="12" fill="currentColor"/>
+      </g>
+      <circle cx="13" cy="109" r="7" fill="none" stroke="var(--mark-copper, #bd6b3d)" stroke-width="4"/>
+      <circle cx="1" cy="120" r="3.5" fill="var(--mark-copper, #bd6b3d)" opacity="0.75"/>
+      <circle cx="-5.5" cy="128" r="2" fill="var(--mark-copper, #bd6b3d)" opacity="0.45"/>
+      </symbol>
+    </svg>
+
     <div class="glow-blob blob-1"></div>
     <div class="glow-blob blob-2"></div>
     
     <header class="navbar">
         <div class="container nav-content">
             <div class="logo">
-                <svg class="logo-mark" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 28.8 V17.8 C10 12.9 14 8.9 18.9 8.9"/><path d="M10 22.2 C10 18.7 12.8 15.9 16.3 15.9"/><path d="M18.9 8.9 C18.9 5 22.1 1.8 26 1.8 C26 5.7 22.8 8.9 18.9 8.9 Z"/></g><circle cx="10" cy="28.8" r="2.3" fill="currentColor"/><circle cx="16.3" cy="15.9" r="2.3" fill="currentColor"/></svg>
-                <span class="logo-text">Gitwig</span>
+                <svg class="logo-mark" aria-hidden="true"><use href="#gw-mark"/></svg>
+                <span class="logo-text">git<span class="wig">wig</span></span>
             </div>
             <nav class="nav-links">
                 <a href="#features">Features</a>
@@ -127,32 +148,32 @@
             <h2 class="section-title">Why Gitwig?</h2>
             <div class="feature-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
                     <h3>Blazing Fast</h3>
                     <p>Built from the ground up in Rust, ensuring instant responsiveness even in massive repositories with extensive history.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">⌨️</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"></rect><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"></path></svg></div>
                     <h3>Keyboard Driven</h3>
                     <p>Familiar keystrokes inspired by modern editors. Navigate branches, stages, and commits effortlessly without touching your mouse.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg></div>
                     <h3>Intuitive UI</h3>
                     <p>A clean, bordered layout presenting branches, worktrees, and stashes at a glance—reminiscent of SourceTree but in the terminal.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></div>
                     <h3>Global Code Search</h3>
                     <p>Press Ctrl-F to search for string patterns across all tracked repositories using a fast, multithreaded offline file scanner.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"></path><rect x="5" y="12" width="3.5" height="6" rx="1"></rect><rect x="10.25" y="7" width="3.5" height="11" rx="1"></rect><rect x="15.5" y="14" width="3.5" height="4" rx="1"></rect></svg></div>
                     <h3>Usage Dashboard</h3>
                     <p>Track your session duration, commit counts, authored lines of code, and view a visual 52-week activity heatmap.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-15.5 6.2M3 12a9 9 0 0 1 15.5-6.2"></path><polyline points="3 5 3 10 8 10"></polyline><polyline points="21 19 21 14 16 14"></polyline></svg></div>
                     <h3>Auto-Refresh</h3>
                     <p>Non-blocking background status checking keeps your repo cards live and up-to-date without freezing the UI.</p>
                 </div>
@@ -167,21 +188,21 @@
             
             <div class="stats-metrics-grid">
                 <div class="stat-card">
-                    <div class="stat-icon">📦</div>
+                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v7a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 15z"></path><polyline points="3.3 7 12 12 20.7 7"></polyline><line x1="12" y1="22" x2="12" y2="12"></line></svg></div>
                     <div class="stat-info">
                         <span class="stat-label">Total Downloads</span>
                         <span id="stat-total-downloads" class="stat-value">--</span>
                     </div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon">🔥</div>
+                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div>
                     <div class="stat-info">
                         <span class="stat-label">Recent Downloads (90d)</span>
                         <span id="stat-recent-downloads" class="stat-value">--</span>
                     </div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon">🏷️</div>
+                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7.2-7.2A2 2 0 0 1 3 12V5a2 2 0 0 1 2-2h7a2 2 0 0 1 1.4.6l7.2 7.2a2 2 0 0 1 0 2.6z"></path><circle cx="7.5" cy="7.5" r="1.3"></circle></svg></div>
                     <div class="stat-info">
                         <span class="stat-label">Latest Version</span>
                         <span id="stat-version" class="stat-value">--</span>
@@ -196,8 +217,8 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <svg class="logo-mark" width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 28.8 V17.8 C10 12.9 14 8.9 18.9 8.9"/><path d="M10 22.2 C10 18.7 12.8 15.9 16.3 15.9"/><path d="M18.9 8.9 C18.9 5 22.1 1.8 26 1.8 C26 5.7 22.8 8.9 18.9 8.9 Z"/></g><circle cx="10" cy="28.8" r="2.3" fill="currentColor"/><circle cx="16.3" cy="15.9" r="2.3" fill="currentColor"/></svg>
-                        <span class="logo-text">Gitwig</span>
+                        <svg class="logo-mark" aria-hidden="true"><use href="#gw-mark"/></svg>
+                        <span class="logo-text">git<span class="wig">wig</span></span>
                     </div>
                     <p class="footer-tagline">The modern terminal Git UI built in Rust.</p>
                 </div>
