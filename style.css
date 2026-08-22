@@ -531,8 +531,8 @@ body.light-theme .blob-2 {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 2.5rem;
     margin-bottom: 3rem;
 }
 
@@ -684,6 +684,97 @@ body.light-theme .blob-2 {
     margin-top: 0.2rem;
 }
 
+/* More from the maker -------------------------------------------------------
+   Ferronote is a separate product, so its tile keeps its own ground (#0f1419)
+   and iron-orange accent rather than inheriting Gitwig's surfaces. Its accent
+   sits ~10 degrees of hue from Gitwig's copper, so on a shared background the
+   two brands would read as one. The tile stays dark in the light theme for the
+   same reason the terminal mockup does: it is a window into another thing. */
+.more-from {
+    padding: 0 2rem 5rem;
+}
+
+.more-from-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.25rem;
+}
+
+.product-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 1.75rem;
+    border-radius: 14px;
+    background: #0f1419;
+    border: 1px solid #23303a;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    border-color: #e24e1b;
+}
+
+.product-icon {
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(226, 78, 27, 0.10);
+}
+
+.product-icon svg {
+    width: 2rem;
+    height: 2rem;
+    display: block;
+}
+
+.product-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    min-width: 0;
+}
+
+.product-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #f2ece4;
+}
+
+.product-pitch {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: #8b95a1;
+}
+
+.product-cta {
+    flex-shrink: 0;
+    margin-left: auto;
+    color: #e24e1b;
+    display: inline-flex;
+    transition: transform 0.2s ease;
+}
+
+.product-cta svg {
+    width: 1.4rem;
+    height: 1.4rem;
+    display: block;
+}
+
+.product-card:hover .product-cta {
+    transform: translateX(4px);
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .hero {
@@ -744,6 +835,20 @@ body.light-theme .blob-2 {
         text-align: center;
     }
     
+    .more-from {
+        padding: 0 1.5rem 3.5rem;
+    }
+
+    .product-card {
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.25rem;
+    }
+
+    .product-cta {
+        display: none;
+    }
+
     .install-card {
         width: 100%;
         justify-content: space-between;
